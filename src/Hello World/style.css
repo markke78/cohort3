@@ -1,0 +1,17 @@
+#button1 {
+    color: white;
+    background-color: orange;
+}
+
+#button1:hover {
+    background-color: black;
+}
+
+#input {
+    border: 5px solid rbga(0,0,255,0.5);
+    box-shadow: 4px 4px 5px gray;
+}
+
+h1 {
+    text-shadow: 2px 2px 8px #FF0000;
+}
