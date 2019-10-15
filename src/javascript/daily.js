@@ -11,10 +11,18 @@ const functions ={
              }
     },
 
-// daily assignment on 2019/OCT/11
-    makeEmailArr: (email) =>{
-        return email[0] + "." + email[1] + "@evolveu.ca";
+// daily assignment on 2019/OCT/09
+    makeEmailArr: (nameArray) =>{
+        return nameArray[0].toLowerCase() + "." + nameArray[1].toLowerCase() + "@evolveu.ca";
     },
+
+// daily assignment on 2019/OCT/11
+    makeEmailObj: (nameObj) => {
+        let firstName = nameObj.fname.toLowerCase();
+        let lastName = nameObj.lname.toLowerCase();
+        let email = firstName + "." + lastName + "@evolveu.ca";
+        return email;
+    }
 
 }
 
