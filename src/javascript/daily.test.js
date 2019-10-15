@@ -8,3 +8,7 @@ test('Compare two parameters', () => {
     expect(assertEquals("2",2)).toBe(false);
     expect(assertEquals("This value","This value")).toBe(true);
 });
+
+test("test testing", () => {
+    console.log("Hello World")
+})
