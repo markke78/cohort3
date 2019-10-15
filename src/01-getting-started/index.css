@@ -76,3 +76,22 @@ html {
         min-height: 400px;
     }
 }
+
+.btn1, .btn2 {
+    
+    width: 50%;
+    display: inline-block;
+    margin-right: -4px;
+}
+    
+
+.btn, .btn3, .btn4 {
+    width: 25%;
+    display: inline-block;
+    margin-right: -5px;
+    
+}
+
+#input {
+    width: 100.5%
+}
