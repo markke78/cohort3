@@ -77,8 +77,7 @@ addUpdate: (addArray) => {
     // for
 loopFor: (sw) => {
     for (var i = 0; i < sw; i++);
-    
-    return i;
+        return i;
 },
     
     // for/in

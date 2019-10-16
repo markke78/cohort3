@@ -25,11 +25,11 @@ test('email builder from an object / map', () => {
 });
 
 test('test forLoop', () => {
-    expect(functions.loopFor(5)).toBe(5);
+    expect(functions.loopFor(["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"])).toEqual("BMW,Volvo,Saab,Ford,Fiat,Audi,");
 });
 
 test('test whileLoop', () => {
-    expect(functions.loopWhile(5)).toBe(5);
+    expect(functions.loopWhile(["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"])).toBe("BMW,Volvo,Saab,Ford,Fiat,Audi,");
 });
 
 test('test doWhileLoop', () => {
@@ -43,5 +43,34 @@ test('test forIn', () => {
 test('test forOf', () => {
     expect(functions.loopForOf(["Mark", "Ethan", "Jim"][0])).toBe("M");
 })
+
+test('test slice', () => {
+    expect(functions.mySlice(["Banana", "Orange", "Lemon", "Apple", "Mango"])).toEqual(["Orange", "Lemon"]);
+})
+
+test('test splice', () => {
+    expect(functions.mySplice(["Banana", "Orange", "Apple", "Mango"])).toEqual([]);
+})
+
+test('test forEach', () => {
+    expect(functions.myForEach([1, 2, 3, 4])).toEqual([2, 4, 6, 8]);
+})    
+
+test('test map', () => {
+    expect(functions.myMap([4, 9, 16, 25])).toEqual([2, 3, 4, 5]);
+})    
+
+test('test reduce', () => {
+    expect(functions.myReduce([1, 2, 3, 4])).toBe(10);
+})
+
+test('test filter', () => {
+    expect(functions.myFilter(['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'])).toEqual(['exuberant', 'destruction', 'present']);
+})
+
+test('test sort', () => {
+    expect(functions.mySort(["Banana", "Orange", "Apple", "Mango"])).toEqual(["Apple","Banana","Mango","Orange"]);
+})
+
 
 
