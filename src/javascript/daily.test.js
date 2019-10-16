@@ -24,4 +24,24 @@ test('email builder from an object / map', () => {
     expect(functions.makeEmailObj({ fname: "Bill", lname: "Smith" })).toEqual("bill.smith@evolveu.ca");
 });
 
+test('test forLoop', () => {
+    expect(functions.loopFor(5)).toBe(5);
+});
+
+test('test whileLoop', () => {
+    expect(functions.loopWhile(5)).toBe(5);
+});
+
+test('test doWhileLoop', () => {
+    expect(functions.loopDoWhile(5)[3]).toBe(3);
+});
+
+test('test forIn', () => {
+    expect(functions.loopForIn(["Mark", "Ethan", "Jim"][0])).toBe("0");
+})
+
+test('test forOf', () => {
+    expect(functions.loopForOf(["Mark", "Ethan", "Jim"][0])).toBe("M");
+})
+
 
