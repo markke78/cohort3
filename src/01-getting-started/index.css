@@ -114,3 +114,16 @@ html {
     margin:auto;
     box-shadow: 4px 4px 5px gray;
 }
+
+.array {
+    border: 3px rgb(2, 2, 2) solid;
+    width: 30%; 
+    height: 250px;
+    text-align: center;
+    margin:auto;
+}
+
+#btns {
+    margin:auto;
+    }
+
