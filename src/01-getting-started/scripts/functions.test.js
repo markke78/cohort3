@@ -27,3 +27,7 @@ test('Check Canadian taxes function', () => {
     expect(functions.myTax(150000)).toBe("$31211.1");
     expect(functions.myTax(300000)).toBe("$78296.26");
 });
+
+test('Check Canadian taxes function', () => {
+    expect(functions.provinces("ab")).toBe("Alberta");
+});

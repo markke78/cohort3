@@ -52,6 +52,22 @@ html {
     opacity: 0.5;
 }
 
+.bgimg-4 {
+    /* background-image: url("https://www.w3schools.com/w3images/parallax2.jpg"); */
+    background-image: url('./images/calculator.jpg');
+    min-height: 400px;
+    opacity: 0.5;
+    background-position: center;
+}
+
+.bgimg-5 {
+    /* background-image: url("https://www.w3schools.com/w3images/parallax2.jpg"); */
+    background-image: url('./images/tax.jpg');
+    min-height: 400px;
+    opacity: 0.5;
+    background-position: center;
+}
+
 .w3-wide {
     letter-spacing: 10px;
 }
@@ -71,17 +87,24 @@ html {
 @media only screen and (max-device-width: 1600px) {
     .bgimg-1,
     .bgimg-2,
-    .bgimg-3 {
+    .bgimg-3,
+    .bgimg-4,
+    .bgimg-5 {
         background-attachment: scroll;
-        min-height: 400px;
+        min-height: 250px;
     }
 }
 
+.taxpic{
+text-shadow: 5px #777;
+}
 .btn1, .btn2 {
     
-    width: 25%;
+    width: 25.8%;
     display: inline-block;
     margin-right: -4px;
+    margin: auto;
+    box-shadow: 4px 4px 5px gray;
 }
     
 
@@ -89,12 +112,15 @@ html {
     width: 12.5%;
     display: inline-block;
     margin-right: -5px;
+    margin: auto;
+    box-shadow: 4px 4px 5px gray;
     
 }
 
 #input {
-    text-align: center;
-    width: 50%    
+    margin: auto;
+    width: 52.5%;
+    box-shadow: 4px 4px 5px gray;    
 }
 
 .calculator-keys{
@@ -104,6 +130,9 @@ html {
     /* left: 50%;  */
     position: relative;
     margin: auto;
+    margin-top: 10px;
+    margin-bottom:10px;
+    
 }
 
 .tax {
@@ -113,6 +142,8 @@ html {
     width: 50%;
     margin:auto;
     box-shadow: 4px 4px 5px gray;
+    margin-top: 10px;
+    margin-bottom:10px;
 }
 
 .array {
@@ -121,9 +152,49 @@ html {
     height: 250px;
     text-align: center;
     margin:auto;
+    margin-top: 10px;
+    margin-bottom:10px;
+    box-shadow: 4px 4px 5px gray;
 }
 
 #btns {
     margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
     }
+
+.array2 {
+    margin-top: 50px;;
+}
+
+/* Working with Dictionaries */
+#dic2 {
+    margin-top: 20px;
+}
+
+#dic4 {
+    border: 3px rgb(2, 2, 2) solid;
+    width: 40%; 
+}
+
+#dic3 {
+    height: 50px;
+    padding-top:10px;
+
+}
+
+#dic5 {
+    text-align: center;
+}
+
+#dic1 {
+    width: 250px;
+}
+
+#dic4 {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom:10px;
+    box-shadow: 4px 4px 5px gray;
+}
 

@@ -44,6 +44,13 @@ but4.addEventListener("click",()=>{
     message=[];
 });
 
+//Working with Dictionaries
+dic2.addEventListener("click", () => {
+        document.getElementById("dic3").textContent= functions.provinces(dic1.value);
+    });
+
+
+
 
 
 

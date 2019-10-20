@@ -15,7 +15,7 @@ const functions = {
     subtract: (num1, num2) => {
         return num1 - num2;
     },
-
+//Working with Arrays
     myNumber: (num, message) => {
     
         if (isNaN(num)== true){
@@ -29,6 +29,7 @@ const functions = {
         }
     },
 
+//Canadians taxes
     myTax: (income, result) => {
         if (income <= 47630 ) {
           result = "$" + Math.round(income * 0.15 *100 )/100;
@@ -49,12 +50,27 @@ const functions = {
             result = "$" + Math.round(((47630 * 0.15) + (47629*0.205) + (52408* 0.26) + (62704 * 0.29) +((income - 210371) * 0.33))*100)/100
             return result;
         }
+    },
+//Working with Dicionaries
+    provinces: (short) => {
+        return canada[short];
     }
+};
 
-}
-
-
-
-    
+    var canada = {
+        ab: "Alberta",
+        bc: "British Columbia",
+        mb: "Manitoba",
+        nb: "New Brunswick",
+        nl: "Newfoundland and Labrador",
+        nt: "Northwest Territories",
+        nu: "Nunavut",
+        ns: "Nova Scotia",
+        on: "Ontario",
+        pe: "Prince Edward Island",
+        qc: "Quebec", 
+        sk: "Saskatchewan",
+        yt: "Yukon"
+    };
 
 export default functions;
