@@ -14,6 +14,10 @@ test('Does that add function work?', () => {
     expect(functions.add(101,202)).toBe(303);
 });
 
+test('Does that subtract function work?', () => {
+    expect(functions.subtract(1,2)).toBe(-1);
+});
+
 
 test('Check array function', () => {
     expect(functions.myNumber(1,[])).toEqual([[1],"the number has been added to the array."]);
@@ -28,6 +32,27 @@ test('Check Canadian taxes function', () => {
     expect(functions.myTax(300000)).toBe("$78296.26");
 });
 
-test('Check Canadian taxes function', () => {
+test('Check Dictionaries', () => {
     expect(functions.provinces("ab")).toBe("Alberta");
 });
+
+test('Check Calculator', () => {
+    expect(functions.myCalculator(false,"","-","","5")).toEqual({"firstData": "", "isOperatorClick": false, "iv": "5"});
+    expect(functions.myCalculator(true,"","-","","5")).toEqual({"firstData": "0", "isOperatorClick": false, "iv": "5"});
+    expect(functions.myCalculator(true,"5","-","","5")).toEqual({"firstData": "", "isOperatorClick": false, "iv": "5"});
+    expect(functions.caculatorWhenClickOperators(false,"1","-","+","3")).toEqual({ "isOperatorClick": true, "iv": -2, "operator": "+"});
+    expect(functions.caculatorWhenClickOperators(false,"1","+","+","3")).toEqual({ "isOperatorClick": true, "iv": 4, "operator": "+"});
+    expect(functions.caculatorWhenClickOperators(false,"1","×","+","3")).toEqual({ "isOperatorClick": true, "iv": 3, "operator": "+"});
+    expect(functions.caculatorWhenClickOperators(false,"6","÷","+","3")).toEqual({ "isOperatorClick": true, "iv": 2, "operator": "+"});
+    expect(functions.caculatorWhenClickEqual("3","-","1")).toEqual({ "isOperatorClick": true, "iv": 2, "operator": "", "firstData": "3"});
+    expect(functions.caculatorWhenClickEqual("","","")).toEqual({ "isOperatorClick": true, "iv": "", "operator": "", "firstData": ""});
+    expect(functions.caculatorWhenClickEqual("","+","2")).toEqual({ "isOperatorClick": true, "iv": 4, "operator": "", "firstData": "2"});
+    expect(functions.caculatorWhenClickEqual("3","+","1")).toEqual({ "isOperatorClick": true, "iv": 4, "operator": "", "firstData": "3"});
+    expect(functions.caculatorWhenClickEqual("3","×","1")).toEqual({ "isOperatorClick": true, "iv": 3, "operator": "", "firstData": "3"});
+    expect(functions.caculatorWhenClickEqual("3","÷","1")).toEqual({ "isOperatorClick": true, "iv": 3, "operator": "", "firstData": "3"});
+    expect(functions.noPointExist("23.3")).toBe(false);
+    expect(functions.noPointExist("233")).toBe(true);
+});
+
+
+

@@ -54,6 +54,105 @@ const functions = {
 //Working with Dicionaries
     provinces: (short) => {
         return canada[short];
+    },
+
+//Caculator
+    myCalculator: (isOperatorClick,firstData,operator,iv,eventTarget) =>{
+        if (isOperatorClick==true) {
+            if(iv==""&&firstData=="" && operator== "-"){
+                firstData="0";// set up firstData = 0, then click numbers, after that click any operators, it will execute the operator function.
+            }else {
+                firstData=iv;
+            }
+            
+            iv =eventTarget;//after click operator
+            isOperatorClick=false;//need to turn off to put next new number.
+        
+        // line17 is for only putting once "."    
+        }else {
+            if (eventTarget != "." || (eventTarget == "." && noPointExist(iv))){
+                iv += eventTarget;//initail number
+            }
+        
+        }
+        return {
+            isOperatorClick:isOperatorClick,
+            firstData:firstData,
+            iv:iv
+        };
+    },
+    caculatorWhenClickOperators:(isOperatorClick,firstData,operator,eventTarget,iv)=>{
+        if (isOperatorClick != true) { 
+            if (firstData != "") {
+             switch(operator){
+                 case "+":
+                     iv =((parseFloat(firstData) + parseFloat(iv)));
+                     break; 
+                 case "-":
+                     iv =(parseFloat(firstData) - parseFloat(iv));
+                     break;
+                 case "×":
+                    iv =(parseFloat(firstData) * parseFloat(iv));
+                     break;
+                 case "÷":
+                    iv =(parseFloat(firstData) / parseFloat(iv));
+                     break;
+         
+             }
+
+         }}
+     //input.value=event.target.value; //no show operator, so no input.value for this
+         isOperatorClick = true; 
+         operator =eventTarget; 
+         return {
+            isOperatorClick:isOperatorClick,
+            operator:operator,
+            iv:iv
+         };
+
+    },
+    caculatorWhenClickEqual:(firstData,operator,iv)=>{
+        if (firstData==""&&iv==""){ 
+            operator=""; //prevent numbers + = Nan
+        }
+        if(firstData==""&&iv!=""){
+            firstData=iv;
+        }
+        // if(input.value==""&&firstData!=""){
+        //     input.value=firstData;
+        // }
+        switch(operator){
+            case "+":
+                iv =((parseFloat(firstData) + parseFloat(iv)));
+                break; 
+            case "-":
+                iv =(parseFloat(firstData) - parseFloat(iv));
+                break;
+            case "×":
+                iv =(parseFloat(firstData) * parseFloat(iv));
+                break;
+            case "÷":
+                iv =(parseFloat(firstData) / parseFloat(iv));
+                break;
+    
+        }
+        operator=""; //prevent after execute "=", then click operator auto execute
+        let isOperatorClick=true; //this is about after executing "=". if the number is clicked, it won't + with last string 
+        return {
+            isOperatorClick:isOperatorClick,
+            operator:operator,
+            firstData:firstData,
+            iv:iv
+        };
+    },
+    //this function is about looking for any "." in the string, if false, it won't go throught line 17, so it won't be allowed to click "." again.
+    noPointExist : (data) =>{
+        for (let i=0; i< data.length; i++){
+            if (data[i] == "."){
+                return false;
+            }
+        }
+        return true;
     }
 };
 
