@@ -1,4 +1,16 @@
 const functions ={
+    //daily assignment on 2019/OCT/21
+
+    loopStaff: (arrayObj) => {
+        let staffEmail=[];
+        arrayObj.forEach(function(item){
+            let email=functions.makeEmailObj(item);
+            staffEmail.push(email);
+        });
+        return staffEmail;
+
+    },
+
    //daily assigment on 2019/OCT/16
     // slice
     mySlice: (fruits) => {

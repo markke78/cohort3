@@ -72,5 +72,24 @@ test('test sort', () => {
     expect(functions.mySort(["Banana", "Orange", "Apple", "Mango"])).toEqual(["Apple","Banana","Mango","Orange"]);
 })
 
+test('email builder for company', () => {
+    const staffEmail = functions.loopStaff(data.staff);
+    expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+    expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+    expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+    })
 
-
+    const data = {
+        staff: [
+            { fname: "Jane", lname: "Smith", balance: 10 },
+            { fname: "Liam", lname: "Henry", balance: 1000 },
+            { fname: "Emma", lname: "Jones", balance: 1330 },
+            { fname: "Olivia", lname: "Notly", balance: 310 },
+            { fname: "Noah", lname: "Ho", balance: 503 },
+            { fname: "William", lname: "Lee", balance: 520 },
+            { fname: "Benjamin", lname: "Amis", balance: 150 },
+        ],
+        company: "EvolveU",
+        city: "Calgary",
+        prov: "Alberta"
+    };
