@@ -1,4 +1,6 @@
 const functions = {
+
+    
 //1st exercise Add Item
     myItems: (items, apple) =>{
         apple.innerHTML = '';
@@ -25,20 +27,22 @@ const functions = {
 
     
 //2nd exercise Add Cards
+    counter: 1,
     addBreak:()=>{
         let br=document.createElement("br");
         return br;
     },
 
-    addCards: (node, counter) =>{
+    createListEletment :(counter) =>{
         let newDiv = document.createElement('div');
         newDiv.className="card";
         newDiv.setAttribute('counter',counter);
         newDiv.textContent = `card # ${counter}`;
-        node.appendChild(newDiv);
-        
-        // let brk = document.createElement('br');
-        // newDiv.appendChild(brk1); use function addBreak to replace.
+        return newDiv;
+    },
+
+    createButtons: (newDiv) => {
+       
         newDiv.appendChild(functions.addBreak());
         
         let addBefore = document.createElement('button');
@@ -57,60 +61,24 @@ const functions = {
         deleteAdd.className="delete";
         deleteAdd.textContent="Delete";
         newDiv.appendChild(deleteAdd);
+     },
+
+    addCards: (node, counter) =>{
+        let newDiv = functions.createListEletment(counter);
+        node.appendChild(newDiv);
+        functions.createButtons(newDiv);
         
     },
     addBefore:(counter,cn)=>{
-        let newDiv = document.createElement('div');
-        newDiv.className="card";
-        newDiv.setAttribute('counter',counter);
-        newDiv.textContent = `card # ${counter}`;
+        let newDiv = functions.createListEletment(counter);
         cn.parentNode.insertBefore(newDiv,cn);
-
-        newDiv.appendChild(functions.addBreak());
-        
-        let addBefore = document.createElement('button');
-        addBefore.className="addBefore";
-        addBefore.textContent="addBefore";
-        newDiv.appendChild(addBefore);
-
-        let addAfter = document.createElement('button');
-        addAfter.className="addAfter";
-        addAfter.textContent="addAfter";
-        newDiv.appendChild(addAfter);
-
-        newDiv.appendChild(functions.addBreak());
-
-        let deleteAdd = document.createElement('button');
-        deleteAdd.className="delete";
-        deleteAdd.textContent="Delete";
-        newDiv.appendChild(deleteAdd);
+        functions.createButtons(newDiv);
         },
 
     addAfter:(counter,cn)=>{
-        let newDiv = document.createElement('div');
-        newDiv.className="card";
-        newDiv.setAttribute('counter',counter);
-        newDiv.textContent = `card # ${counter}`;
+        let newDiv = functions.createListEletment(counter);
         cn.parentNode.appendChild(newDiv);
-
-        newDiv.appendChild(functions.addBreak());
-        
-        let addBefore = document.createElement('button');
-        addBefore.className="addBefore";
-        addBefore.textContent="addBefore";
-        newDiv.appendChild(addBefore);
-
-        let addAfter = document.createElement('button');
-        addAfter.className="addAfter";
-        addAfter.textContent="addAfter";
-        newDiv.appendChild(addAfter);
-
-        newDiv.appendChild(functions.addBreak());
-
-        let deleteAdd = document.createElement('button');
-        deleteAdd.className="delete";
-        deleteAdd.textContent="Delete";
-        newDiv.appendChild(deleteAdd);
+        functions.createButtons(newDiv);
     },
 
     deleteNode:(node)=>{

@@ -24,17 +24,17 @@ dom4.addEventListener("click", ()=>{
 
 
 //2nd exercise Add Cards
-var counter = 1;
+
 ac1.addEventListener("click", () => {
-    functions.addCards(more, counter++)
+    functions.addCards(more, functions.counter++)
 })
 
 document.addEventListener("click", (e) => {
     if (e.target && e.target.className == "addBefore") {
-        functions.addBefore(counter++, e.target.closest(".card"));
+        functions.addBefore(functions.counter++, e.target.closest(".card"));
     }
     if (e.target && e.target.className == "addAfter") {
-        functions.addAfter(counter++, e.target.closest(".card"));
+        functions.addAfter(functions.counter++, e.target.closest(".card"));
     }
     if (e.target && e.target.className == "delete") {
         functions.deleteNode(e.target.closest(".card"));
