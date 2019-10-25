@@ -1,6 +1,6 @@
 import functions from './functions.js';
 
-// var items=["Item1","Item2","Item3"];
+//1st exercise Add Item
 var items=[];
 var intemsIndex = items.length+1;
 dom1.addEventListener("click", ()=>{
@@ -22,6 +22,8 @@ dom4.addEventListener("click", ()=>{
     
 })
 
+
+//2nd exercise Add Cards
 var counter = 1;
 ac1.addEventListener("click", () => {
     functions.addCards(more, counter++)

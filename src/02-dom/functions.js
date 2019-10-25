@@ -1,4 +1,5 @@
 const functions = {
+//1st exercise Add Item
     myItems: (items, apple) =>{
         apple.innerHTML = '';
         for (let b of items){
@@ -22,6 +23,8 @@ const functions = {
         return items;
     },
 
+    
+//2nd exercise Add Cards
     addBreak:()=>{
         let br=document.createElement("br");
         return br;
