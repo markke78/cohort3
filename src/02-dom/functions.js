@@ -1,25 +1,118 @@
 const functions = {
-    myItems: (yahoo, google) =>{
-        google.innerHTML = '';
-        for (let b of yahoo){
+    myItems: (items, apple) =>{
+        apple.innerHTML = '';
+        for (let b of items){
         let addItem = document.createElement("li");
         addItem.className="linux";
-        addItem.textContent=b ;
-        google.appendChild(addItem);
+        addItem.textContent=b;
+        apple.appendChild(addItem);
         }
     },
     
-    plusItems: (sina,index) =>{
-        sina.push("Item "+index);
-        return sina;
+    plusItems: (items,intemsIndex) =>{
+        items.push("Item "+intemsIndex);
+        return items;
     },
-    startItems: (sina,index) =>{
-        sina.unshift("Item "+index);
-        return sina;
+    startItems: (items,intemsIndex) =>{
+        items.unshift("Item "+intemsIndex);
+        return items;
     },
-    deleteItems: (sina) =>{
-        sina.pop();
-        return sina;
+    deleteItems: (items) =>{
+        items.pop();
+        return items;
+    },
+
+    addBreak:()=>{
+        let br=document.createElement("br");
+        return br;
+    },
+
+    addCards: (node, counter) =>{
+        let newDiv = document.createElement('div');
+        newDiv.className="card";
+        newDiv.setAttribute('counter',counter);
+        newDiv.textContent = `card # ${counter}`;
+        node.appendChild(newDiv);
+        
+        // let brk = document.createElement('br');
+        // newDiv.appendChild(brk1); use function addBreak to replace.
+        newDiv.appendChild(functions.addBreak());
+        
+        let addBefore = document.createElement('button');
+        addBefore.className="addBefore";
+        addBefore.textContent="addBefore";
+        newDiv.appendChild(addBefore);
+
+        let addAfter = document.createElement('button');
+        addAfter.className="addAfter";
+        addAfter.textContent="addAfter";
+        newDiv.appendChild(addAfter);
+
+        newDiv.appendChild(functions.addBreak());
+
+        let deleteAdd = document.createElement('button');
+        deleteAdd.className="delete";
+        deleteAdd.textContent="Delete";
+        newDiv.appendChild(deleteAdd);
+        
+    },
+    addBefore:(counter,cn)=>{
+        let newDiv = document.createElement('div');
+        newDiv.className="card";
+        newDiv.setAttribute('counter',counter);
+        newDiv.textContent = `card # ${counter}`;
+        cn.parentNode.insertBefore(newDiv,cn);
+
+        newDiv.appendChild(functions.addBreak());
+        
+        let addBefore = document.createElement('button');
+        addBefore.className="addBefore";
+        addBefore.textContent="addBefore";
+        newDiv.appendChild(addBefore);
+
+        let addAfter = document.createElement('button');
+        addAfter.className="addAfter";
+        addAfter.textContent="addAfter";
+        newDiv.appendChild(addAfter);
+
+        newDiv.appendChild(functions.addBreak());
+
+        let deleteAdd = document.createElement('button');
+        deleteAdd.className="delete";
+        deleteAdd.textContent="Delete";
+        newDiv.appendChild(deleteAdd);
+        },
+
+    addAfter:(counter,cn)=>{
+        let newDiv = document.createElement('div');
+        newDiv.className="card";
+        newDiv.setAttribute('counter',counter);
+        newDiv.textContent = `card # ${counter}`;
+        cn.parentNode.appendChild(newDiv);
+
+        newDiv.appendChild(functions.addBreak());
+        
+        let addBefore = document.createElement('button');
+        addBefore.className="addBefore";
+        addBefore.textContent="addBefore";
+        newDiv.appendChild(addBefore);
+
+        let addAfter = document.createElement('button');
+        addAfter.className="addAfter";
+        addAfter.textContent="addAfter";
+        newDiv.appendChild(addAfter);
+
+        newDiv.appendChild(functions.addBreak());
+
+        let deleteAdd = document.createElement('button');
+        deleteAdd.className="delete";
+        deleteAdd.textContent="Delete";
+        newDiv.appendChild(deleteAdd);
+    },
+
+    deleteNode:(node)=>{
+        node.remove();
     }
+
 }
 export default functions;
