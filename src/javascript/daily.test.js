@@ -1,5 +1,6 @@
 import functions from './daily.js'
 
+
 test('Compare two parameters', () => {
     expect(functions.assertEquals("a","b")).toBe(false);
     expect(functions.assertEquals("a","a")).toBe(true);
@@ -78,6 +79,20 @@ test('email builder for company', () => {
     expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
     expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
     })
+
+    test('email builder for company', () => {
+        const staffEmail = functions.loopStaffOf(data.staff);
+        expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+        expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+        expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+        })
+
+        test('email builder for company', () => {
+            const staffEmail = functions.loopStaffIn(data.staff);
+            expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+            expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+            expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+            })
 
     const data = {
         staff: [

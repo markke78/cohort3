@@ -1,4 +1,25 @@
 const functions ={
+    //daily assignment on 2019/OCT/24
+    
+    loopStaffOf: (arrayObj) => {
+        let staffEmail=[];
+        for (let b of arrayObj){
+            let email = functions.makeEmailObj(b);
+            staffEmail.push(email);
+        }
+        return staffEmail;
+    },
+
+    loopStaffIn: (arrayObj) => {
+        let staffEmail=[];
+        for (let b in arrayObj){
+            b = arrayObj[b];
+            let email =functions.makeEmailObj(b);
+            staffEmail.push(email);
+        }
+        return staffEmail;
+    },
+    
     //daily assignment on 2019/OCT/21
 
     loopStaff: (arrayObj) => {

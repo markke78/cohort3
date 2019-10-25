@@ -1,6 +1,6 @@
 const functions = {
     addCard: (node, counter)=>{
-        let newDiv = document.createElement('div')
+        let newDiv = document.createElement('div');
         //node.textContent="I am newDiv";
         newDiv.className="card1";
         newDiv.setAttribute('counter',counter),
