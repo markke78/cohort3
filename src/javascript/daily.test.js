@@ -94,6 +94,22 @@ test('email builder for company', () => {
             expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
             })
 
+        test('email builder for company', () => {
+            const staffEmail = functions.loopStaffMap(data.staff);
+            expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+            expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+            expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+            })
+
+        test('email builder for company', () => {
+            const staffEmail = functions.loopStaffForEach(data.staff);
+            expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+            expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+            expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+            })
+
+            
+
     const data = {
         staff: [
             { fname: "Jane", lname: "Smith", balance: 10 },

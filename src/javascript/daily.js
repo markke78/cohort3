@@ -1,4 +1,20 @@
 const functions ={
+    //daily assignment on 2019/OCT/25
+    loopStaffMap: (arrayObj) => {
+        let staffEmail = arrayObj.map((item) => {
+            return functions.makeEmailObj(item)});
+        return staffEmail;
+    },
+
+    loopStaffForEach: (arrayObj) => {
+        let staffEmail=[];
+        arrayObj.forEach(function(item){
+            let email=functions.makeEmailObj(item);
+            staffEmail.push(email);
+        });
+        return staffEmail;
+    },
+ 
     //daily assignment on 2019/OCT/24
     
     loopStaffOf: (arrayObj) => {
