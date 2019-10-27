@@ -27,63 +27,54 @@ const functions = {
 
     
 //2nd exercise Add Cards
-    counter: 1,
-    addBreak:()=>{
-        let br=document.createElement("br");
-        return br;
-    },
-
-    createListEletment :(counter) =>{
+    createListElement: (counter) =>{
         let newDiv = document.createElement('div');
         newDiv.className="card";
         newDiv.setAttribute('counter',counter);
         newDiv.textContent = `card # ${counter}`;
-        return newDiv;
-    },
-
-    createButtons: (newDiv) => {
-       
-        newDiv.appendChild(functions.addBreak());
+        
+        let brk = document.createElement('br');
+        newDiv.appendChild(brk);
         
         let addBefore = document.createElement('button');
         addBefore.className="addBefore";
+        addBefore.setAttribute('id', "first") ;
         addBefore.textContent="addBefore";
         newDiv.appendChild(addBefore);
 
         let addAfter = document.createElement('button');
         addAfter.className="addAfter";
+        addAfter.setAttribute('id', "second") ;
         addAfter.textContent="addAfter";
         newDiv.appendChild(addAfter);
 
-        newDiv.appendChild(functions.addBreak());
+        let brk1 = document.createElement('br');
+        newDiv.appendChild(brk1);
 
         let deleteAdd = document.createElement('button');
         deleteAdd.className="delete";
+        deleteAdd.setAttribute('id', "third") ;
         deleteAdd.textContent="Delete";
         newDiv.appendChild(deleteAdd);
-     },
+        return newDiv;
+    },
 
     addCards: (node, counter) =>{
-        let newDiv = functions.createListEletment(counter);
-        node.appendChild(newDiv);
-        functions.createButtons(newDiv);
-        
+        node.appendChild(functions.createListElement(counter));
     },
+
     addBefore:(counter,cn)=>{
-        let newDiv = functions.createListEletment(counter);
-        cn.parentNode.insertBefore(newDiv,cn);
-        functions.createButtons(newDiv);
-        },
+        cn.parentNode.insertBefore(functions.createListElement(counter),cn);
+    },
 
     addAfter:(counter,cn)=>{
-        let newDiv = functions.createListEletment(counter);
-        cn.parentNode.appendChild(newDiv);
-        functions.createButtons(newDiv);
+        cn.parentNode.insertBefore(functions.createListElement(counter),cn.nextSibling);
     },
-
+    
     deleteNode:(node)=>{
         node.remove();
-    }
+    },
 
-}
+};
+
 export default functions;
