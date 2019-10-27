@@ -38,13 +38,11 @@ const functions = {
         
         let addBefore = document.createElement('button');
         addBefore.className="addBefore";
-        addBefore.setAttribute('id', "first") ;
         addBefore.textContent="addBefore";
         newDiv.appendChild(addBefore);
 
         let addAfter = document.createElement('button');
         addAfter.className="addAfter";
-        addAfter.setAttribute('id', "second") ;
         addAfter.textContent="addAfter";
         newDiv.appendChild(addAfter);
 
@@ -53,7 +51,6 @@ const functions = {
 
         let deleteAdd = document.createElement('button');
         deleteAdd.className="delete";
-        deleteAdd.setAttribute('id', "third") ;
         deleteAdd.textContent="Delete";
         newDiv.appendChild(deleteAdd);
         return newDiv;
