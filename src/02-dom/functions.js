@@ -27,6 +27,22 @@ const functions = {
 
     
 //2nd exercise Add Cards
+    addCards: (node, counter) =>{
+        node.appendChild(functions.createListElement(counter));
+    },
+
+    addBefore:(counter,cn)=>{
+        cn.parentNode.insertBefore(functions.createListElement(counter),cn);
+    },
+
+    addAfter:(counter,cn)=>{
+        cn.parentNode.insertBefore(functions.createListElement(counter),cn.nextSibling);
+    },
+    
+    deleteNode:(node)=>{
+        node.remove();
+    },
+
     createListElement: (counter) =>{
         let newDiv = document.createElement('div');
         newDiv.className="card";
@@ -54,23 +70,7 @@ const functions = {
         deleteAdd.textContent="Delete";
         newDiv.appendChild(deleteAdd);
         return newDiv;
-    },
-
-    addCards: (node, counter) =>{
-        node.appendChild(functions.createListElement(counter));
-    },
-
-    addBefore:(counter,cn)=>{
-        cn.parentNode.insertBefore(functions.createListElement(counter),cn);
-    },
-
-    addAfter:(counter,cn)=>{
-        cn.parentNode.insertBefore(functions.createListElement(counter),cn.nextSibling);
-    },
-    
-    deleteNode:(node)=>{
-        node.remove();
-    },
+    }
 
 };
 
