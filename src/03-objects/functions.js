@@ -6,11 +6,13 @@ export class Account{
     }
 
     deposit(amount){
+        if(!this.isNumber(amount)) return;
         this.balance += amount;
     }
         
 
     withdraw(amount){
+        if(!this.isNumber(amount)) return;
         this.balance -= amount;
     }
 
@@ -18,6 +20,13 @@ export class Account{
         return this.balance;
     }
 
+    isNumber(amount){
+        if(isNaN(amount)){
+            return false;
+        }else{
+            return true;
+        }
+    }
  
 }
 
