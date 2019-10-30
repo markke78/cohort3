@@ -122,7 +122,7 @@ loopDoWhile: (mySw) => {
         // declare object
         // lookup key to retrieve value
         
-        member1: (fstName, lstName, ag) => {
+        member2: (fstName, lstName, ag) => {
             let person = {Firstname:fstName, Lastname:lstName, age:ag};
             return person.Firstname;
         }

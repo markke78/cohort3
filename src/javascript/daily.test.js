@@ -108,6 +108,15 @@ test('email builder for company', () => {
             expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
             })
 
+        test('email builder for company', () => {
+            expect(functions.loopReduce(data.staff)).toBe(3823);
+            })
+
+        test('email builder for company', () => {
+            expect(functions.loopAverage(data.staff)).toBe(546.1428571428571);
+            })
+    
+
             
 
     const data = {

@@ -24,6 +24,7 @@ test('test obj', () => {
 
 test('test myifelse', () => {
     expect(functions.biggerOut(1,2)).toBe(2);
+    expect(functions.biggerOut(2,1)).toBe(2);
 })
 
 test('test to be undefined', () => {
@@ -69,5 +70,5 @@ test('test forEach', () => {
 })
 
 test('test obj', () => {
-    expect(functions.member1("Mark", "Ke", 41)).toEqual("Mark");
+    expect(functions.member2("Mark", "Ke", 41)).toEqual("Mark");
 })

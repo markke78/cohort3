@@ -1,16 +1,47 @@
 const functions ={
+ //daily assignment on 2019/OCT/29
+   
+    loopReduce: (arrayObj) => {
+        let staffMoney=[];
+        let balance=0; 
+        arrayObj.forEach((item)=>{
+        staffMoney.push(item.balance);
+        balance = staffMoney.reduce((acc,cur)=> acc + cur);
+        });
+        return balance;
+    },
+
+    loopAverage:(arrayObj) => {
+        let staffMoney=[];
+        let balance=0; 
+        arrayObj.forEach((item)=>{
+        staffMoney.push(item.balance);
+        balance = staffMoney.reduce((acc,cur)=> acc + cur)/staffMoney.length;
+        });
+        return balance;
+    },
+
     //daily assignment on 2019/OCT/25
+    
     loopStaffMap: (arrayObj) => {
-        let staffEmail = arrayObj.map((item) => {
-            return functions.makeEmailObj(item)});
+            let staffEmail = arrayObj.map((item) => {
+            return functions.makeEmailObj(item);
+        });
         return staffEmail;
     },
 
+    // loopStaffMap: (arrayObj) => {
+    //     let staffEmail=[];
+    //     arrayObj.map((item)=>{
+    //         staffEmail.push(functions.makeEmailObj(item));
+    //     })
+    //     return staffEmail;
+    // },
+
     loopStaffForEach: (arrayObj) => {
         let staffEmail=[];
-        arrayObj.forEach(function(item){
-            let email=functions.makeEmailObj(item);
-            staffEmail.push(email);
+        arrayObj.forEach((item)=>{
+        staffEmail.push(functions.makeEmailObj(item));
         });
         return staffEmail;
     },
@@ -20,8 +51,7 @@ const functions ={
     loopStaffOf: (arrayObj) => {
         let staffEmail=[];
         for (let b of arrayObj){
-            let email = functions.makeEmailObj(b);
-            staffEmail.push(email);
+            staffEmail.push(functions.makeEmailObj(b));
         }
         return staffEmail;
     },
@@ -29,9 +59,7 @@ const functions ={
     loopStaffIn: (arrayObj) => {
         let staffEmail=[];
         for (let b in arrayObj){
-            b = arrayObj[b];
-            let email =functions.makeEmailObj(b);
-            staffEmail.push(email);
+            staffEmail.push(functions.makeEmailObj(arrayObj[b]));
         }
         return staffEmail;
     },
@@ -41,8 +69,7 @@ const functions ={
     loopStaff: (arrayObj) => {
         let staffEmail=[];
         arrayObj.forEach(function(item){
-            let email=functions.makeEmailObj(item);
-            staffEmail.push(email);
+            staffEmail.push(functions.makeEmailObj(item));
         });
         return staffEmail;
 
