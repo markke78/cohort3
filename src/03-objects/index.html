@@ -8,13 +8,48 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <h1>Account User Intrface</h1>
-    <button class="money" id="btn1">Deposit</button>
-    <button class="money money2" id="btn2">Withdraw</button>
-    <button class="money money3" id="btn3">Balance</button><br>
-    <input type="text" id="int1">
-    <div class="money4">
-        <h4>Your Balance:</h4><label id="label1"></label>
+    <div class="banner"><h1>EvolveU Bank</h1></div>
+    <div class="container">
+        <div class="split left" id="left">
+            <h1>Add Account</h1>
+            <h5>Account Type:</h5>
+            <form>
+                    <select id="addType1" name="your account">
+                    　<option value="checking">Checking Account</option>
+                    　<option value="saving">Saving Account</option>
+                    　<option value="rrsp">RRSP</option>
+                    　<option value="tfsa">TFSA</option>
+                    </select>
+                    </form>
+            <button button class="money money5" id="btn4">Add</button>
+            <div>
+                <h3>Account Summary</h3>
+                <h5>Total of your account:<span id="totalAmount"></span></h5>
+                <h5>Hightest value account:<span id="highest"></span></h5>
+                <h5>Lowest Value account account:<span id="lowest"></span></h5>
+            </div>
+        </div>
+        <div id="accArea" class="split right">
+            <h1>Account Imformation</h1>
+            
+                <button class="money" id="btn1">Deposit</button>
+                <button class="money money2" id="btn2">Withdraw</button>
+                <button class="money money3" id="btn3">Balance</button><br>
+                <input type="text" id="int1">
+                <form>
+                        <select name="your account" id="rightSelect" >
+                        <!-- 　<option value="checking">Checking Account</option>
+                        　<option value="saving">Saving Account</option>
+                        　<option value="rrsp">RRSP</option>
+                        　<option value="tfsa">TFSA</option> -->
+                        </select>
+                        </form>
+
+                <div class="acc">
+                <h5>Account Type: Checking Account</h5> 
+                <h4>Your Balance:</h4><h4 id="span1"></h4>
+                </div>
+        </div>
     </div>
 </body>
 <script type="module" src="./main.js"></script>
