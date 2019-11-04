@@ -8,7 +8,7 @@ test("class account", () => {
   expect(acc.balance1()).toBe(51);
 });
 
-test("check create account1", () => {
+test("check the controller create account1", () => {
   const controller = new AccountController("controller");
   controller.addAccount("checking", 0);
   expect(controller.userAccounts[0].accountName).toBe("checking");
