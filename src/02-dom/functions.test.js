@@ -39,7 +39,7 @@ test('add card', () => {
     expect(div.children[1].textContent).toBe("card # 1addBeforeaddAfterDelete");
     expect(functions.addCards(div,1).childElementCount).toBe(5);
     expect(functions.addBefore(1,newDiv).childElementCount).toBe(5);
+    expect(functions.addAfter(1,newDiv).childElementCount).toBe(5);
+    expect(functions.deleteNode(newDiv).childElementCount).toBe(0);
+
 });
-
-
-

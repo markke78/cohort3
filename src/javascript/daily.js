@@ -2,22 +2,18 @@ const functions ={
  //daily assignment on 2019/OCT/29
    
     loopReduce: (arrayObj) => {
-        let staffMoney=[];
-        let balance=0; 
-        arrayObj.forEach((item)=>{
-        staffMoney.push(item.balance);
-        balance = staffMoney.reduce((acc,cur)=> acc + cur);
-        });
-        return balance;
+        let balance = arrayObj.reduce((acc,cur)=> acc + cur.balance,0);
+            return balance;
     },
 
     loopAverage:(arrayObj) => {
-        let staffMoney=[];
-        let balance=0; 
-        arrayObj.forEach((item)=>{
-        staffMoney.push(item.balance);
-        balance = staffMoney.reduce((acc,cur)=> acc + cur)/staffMoney.length;
-        });
+        let balance = arrayObj.reduce((acc,cur)=> acc + cur.balance,0)/arrayObj.length;
+        // let staffMoney=[];
+        // let balance=0; 
+        // arrayObj.forEach((item)=>{
+        // staffMoney.push(item.balance);
+        // balance = staffMoney.reduce((acc,cur)=> acc + cur)/staffMoney.length;
+        // });
         return balance;
     },
 

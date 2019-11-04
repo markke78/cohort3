@@ -28,19 +28,26 @@ const functions = {
     
 //2nd exercise Add Cards
     addCards: (node, counter) =>{
-        node.appendChild(functions.createListElement(counter));
+        let newDiv=functions.createListElement(counter);
+        node.appendChild(newDiv);
+        return newDiv;
     },
 
     addBefore:(counter,cn)=>{
-        cn.parentNode.insertBefore(functions.createListElement(counter),cn);
+        let newDiv=functions.createListElement(counter);
+        cn.parentNode.insertBefore(newDiv,cn);
+        return newDiv;
     },
 
     addAfter:(counter,cn)=>{
-        cn.parentNode.insertBefore(functions.createListElement(counter),cn.nextSibling);
+        let newDiv=functions.createListElement(counter);
+        cn.parentNode.insertBefore(newDiv,cn.nextSibling);
+        return newDiv;
     },
     
     deleteNode:(node)=>{
         node.remove();
+        return node;
     },
 
     createListElement: (counter) =>{
