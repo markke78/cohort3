@@ -1,71 +1,67 @@
-
-.banner{
-    background-color: lightskyblue;
-    text-align: center;
-    height: 50px;
+.banner {
+  background-color: lightskyblue;
+  text-align: center;
+  height: 50px;
 }
 .money {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .money2 {
-    background-color: #f44336;
+  background-color: #f44336;
 }
 
-.money3 {
-    background-color: #008CBA;
+.remove {
+  background-color: #008cba;
 }
 
 #int1 {
-    width: 385px;
-    height: 30px;
-    margin-top: 5px;
+  width: 385px;
+  height: 30px;
+  margin-top: 5px;
 }
 
 .money4 {
-    background-color: yellow;
-    width:385px;
+  background-color: yellow;
+  width: 385px;
 }
 
 .money5 {
-    background-color: rgb(89, 84, 95);
+  background-color: rgb(89, 84, 95);
 }
 
 .left {
-    width:32%; 
-    
-    float: left;
-  
+  width: 32%;
+
+  float: left;
 }
 
-.right{
-    width: 65%; 
- 
-    float: left; 
-    border-left:solid black; 
-   
+.right {
+  width: 65%;
+
+  float: left;
+  border-left: solid black;
 }
 
 .acc {
-    border:solid black; 
-    border-radius: 10px;
-    width: 500px;
-    margin: 10px;
+  border: solid black;
+  border-radius: 10px;
+  width: 500px;
+  margin: 10px;
 }
 
 .container {
-    width:100%; 
-    height:auto;
-     float: left; 
-    border:solid black;
-    
+  width: 100%;
+  height: auto;
+  float: left;
+  border: solid black;
 }
