@@ -44,6 +44,16 @@ class City {
       return "Southern Hemisphere";
     } else return "Equator";
   }
+  latitude1() {
+    return this.latitude;
+  }
+  name1() {
+    return this.name;
+  }
+
+  population1() {
+    return this.population;
+  }
 }
 
 class Community {
@@ -63,6 +73,36 @@ class Community {
       }
     }
     return this.communityCities;
+  }
+  getMostNorthern() {
+    let lat = [];
+    for (let b of this.communityCities) {
+      lat.push(b.latitude1());
+    }
+    let heighestValue = Math.max(...lat);
+    for (let b of this.communityCities) {
+      if (b.latitude1() == heighestValue) {
+        return [b.name1(), b.latitude1()];
+        // return {"type":b.accountType1(),"balance":b.balance1()};
+      }
+    }
+  }
+
+  getMostSouthern() {
+    //let balanceNumbers = [];
+    if (this.communityCities.length < 1) return ["", 0];
+    let b = this.communityCities.reduce((prev, current) =>
+      prev.latitude1() < current.latitude1() ? prev : current
+    );
+    return [b.name1(), b.latitude1()];
+  }
+
+  getPopulation() {
+    let summary = 0;
+    for (let b of this.communityCities) {
+      summary += b.population1();
+    }
+    return summary;
   }
 }
 

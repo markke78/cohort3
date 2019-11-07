@@ -32,7 +32,7 @@ test("test community create city", () => {
   expect(community.communityCities[0].name).toBe("Taipei");
 });
 
-test("test delet city working", () => {
+test("test delete city working", () => {
   const community = new Community("community");
   community.createCity("Taipei", 25.105497, 121.597366, 2500000);
   community.createCity("Calgary", 51.049999, -114.066666, 1392609);
@@ -41,4 +41,18 @@ test("test delet city working", () => {
   community.deleteCity("calgay");
   console.log(community);
   expect(community.communityCities.length).toBe(2);
+});
+
+test("test most northern working", () => {
+  const community = new Community("community");
+  community.createCity("Taipei", 25.105497, 121.597366, 2500000);
+  community.createCity("Calgary", 51.049999, -114.066666, 1392609);
+  expect(community.getMostNorthern()).toEqual(["Calgary", 51.049999]);
+});
+
+test("test most southern working", () => {
+  const community = new Community("community");
+  community.createCity("Taipei", 25.105497, 121.597366, 2500000);
+  community.createCity("Calgary", 51.049999, -114.066666, 1392609);
+  expect(community.getPopulation()).toBe(3892609);
 });
