@@ -1,8 +1,8 @@
-import { City } from "./city.js";
+import { City, Community } from "./city.js";
 
 test("check class city working", () => {
-  let m = new City("Calgary", "51.049999", "-114.066666", "1,392,609");
-  expect(m.show()).toEqual("Calgary 51.049999 -114.066666 1,392,609");
+  let m = new City("Calgary", 51.049999, -114.066666, 1392609);
+  expect(m.show()).toEqual("Calgary 51.049999 -114.066666 1392609");
 });
 
 test("test movedIn working", () => {
@@ -23,4 +23,22 @@ test("test howbig working", () => {
 test("test whichSphere working", () => {
   let m = new City("Calgary", 51.049999, -114.066666, 1392609);
   expect(m.whichSphere()).toBe("Northern Hemipnere");
+});
+
+test("test community create city", () => {
+  const community = new Community("community");
+  community.createCity("Taipei", 25.105497, 121.597366, 2500000);
+  console.log(community);
+  expect(community.communityCities[0].name).toBe("Taipei");
+});
+
+test("test delet city working", () => {
+  const community = new Community("community");
+  community.createCity("Taipei", 25.105497, 121.597366, 2500000);
+  community.createCity("Calgary", 51.049999, -114.066666, 1392609);
+  expect(community.communityCities.length).toBe(2);
+  console.log(community);
+  community.deleteCity("calgay");
+  console.log(community);
+  expect(community.communityCities.length).toBe(2);
 });

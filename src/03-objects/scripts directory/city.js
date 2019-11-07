@@ -1,4 +1,4 @@
-export class City {
+class City {
   constructor(name, latitude, longitude, population) {
     this.name = name;
     this.latitude = latitude;
@@ -46,4 +46,24 @@ export class City {
   }
 }
 
-class Community {}
+class Community {
+  constructor() {
+    this.communityCities = [];
+  }
+  createCity(name, latitude, longitude, population) {
+    const newCity = new City(name, latitude, longitude, population);
+    this.communityCities.push(newCity);
+    return newCity;
+  }
+
+  deleteCity(name) {
+    for (let b in this.communityCities) {
+      if (this.communityCities[b].name == name) {
+        this.communityCities.splice(b, 1);
+      }
+    }
+    return this.communityCities;
+  }
+}
+
+export { City, Community };
