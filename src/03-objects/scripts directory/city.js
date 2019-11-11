@@ -1,9 +1,12 @@
+//import { postData } from "./fetch.js";
+
 class City {
-  constructor(name, latitude, longitude, population) {
+  constructor(key, name, latitude, longitude, population) {
     this.name = name;
     this.latitude = latitude;
     this.longitude = longitude;
     this.population = population;
+    this.key = key;
   }
 
   show() {
@@ -59,51 +62,141 @@ class City {
 class Community {
   constructor() {
     this.communityCities = [];
+    this.keySeris = 1;
+    this.url = "http://localhost:5000/";
+  }
+  async getDataFromServer() {
+    let cities = [];
+    await postData(this.url + "all").then(data => {
+      for (let b of data) {
+        let city = new City(
+          b.key,
+          b.name,
+          b.latitude,
+          b.longitude,
+          b.population
+        );
+        cities.push(city);
+      }
+    });
+    return cities;
   }
   createCity(name, latitude, longitude, population) {
-    const newCity = new City(name, latitude, longitude, population);
-    this.communityCities.push(newCity);
+    const newCity = new City(
+      this.keySeris++,
+      name,
+      latitude,
+      longitude,
+      population
+    );
+    postData(this.url + "add", newCity);
     return newCity;
   }
-
-  deleteCity(name) {
-    for (let b in this.communityCities) {
-      if (this.communityCities[b].name == name) {
-        this.communityCities.splice(b, 1);
+  //actually, function deleteCity cannot be uesed async, but it need to be tested, so that's why this function does one more getDataFromServer() becasuse it need to get the data from database to check how many cities.
+  async deleteCity(name) {
+    let cities = [];
+    let key = 0;
+    await this.getDataFromServer().then(data => {
+      for (let b in data) {
+        if (data[b].name == name) {
+          key = data[b].key;
+        }
       }
-    }
-    return this.communityCities;
-  }
-  getMostNorthern() {
-    let lat = [];
-    for (let b of this.communityCities) {
-      lat.push(b.latitude1());
-    }
-    let heighestValue = Math.max(...lat);
-    for (let b of this.communityCities) {
-      if (b.latitude1() == heighestValue) {
-        return [b.name1(), b.latitude1()];
-        // return {"type":b.accountType1(),"balance":b.balance1()};
-      }
-    }
+    });
+    await postData(this.url + "delete", { key: key });
+    await this.getDataFromServer().then(data => {
+      cities = data;
+    });
+    return cities;
   }
 
-  getMostSouthern() {
+  async getMostNorthern() {
+    let result = { name: "", latitude: "" };
+    await postData(this.url + "all").then(data => {
+      let lat = [];
+      for (let b of data) {
+        lat.push(b.latitude);
+      }
+      let heighestValue = Math.max(...lat);
+      for (let b of data) {
+        if (b.latitude == heighestValue) {
+          result = { name: b.name, latitude: b.latitude };
+        }
+      }
+    });
+    return result;
+  }
+
+  async getMostSouthern() {
     //let balanceNumbers = [];
-    if (this.communityCities.length < 1) return ["", 0];
-    let b = this.communityCities.reduce((prev, current) =>
-      prev.latitude1() < current.latitude1() ? prev : current
-    );
-    return [b.name1(), b.latitude1()];
+    let result = ["", 0];
+    await postData(this.url + "all").then(data => {
+      if (data.length > 1) {
+        let b = data.reduce((prev, current) =>
+          prev.latitude < current.latitude ? prev : current
+        );
+        result = [b.name, b.latitude];
+      }
+    });
+    return result;
   }
 
-  getPopulation() {
+  async getPopulation() {
     let summary = 0;
-    for (let b of this.communityCities) {
-      summary += b.population1();
-    }
+    // for (let b of this.communityCities) {
+    //   summary += b.population1();
+    // }
+    await postData(this.url + "all").then(data => {
+      for (let b of data) {
+        summary += b.population;
+      }
+    });
     return summary;
   }
-}
 
+  async popOperator(name, amount, inAndOut) {
+    let result = 0;
+    await postData(this.url + "all").then(data => {
+      for (let b of data) {
+        if (b.name == name) {
+          switch (inAndOut) {
+            case "moveIn":
+              // b.movedIn(amount);
+              b.population += amount;
+              break;
+            case "moveOut":
+              // b.movedOut(amount);
+              b.population -= amount;
+              break;
+          }
+          postData(this.url + "update", b);
+          result = b.population;
+        }
+      }
+    });
+    return result;
+  }
+}
+async function postData(url = "", data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json"
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrer: "no-referrer", // no-referrer, *client
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+
+  const json = await response.json(); // parses JSON response into native JavaScript objects
+  json.status = response.status;
+  json.statusText = response.statusText;
+  // console.log(json, typeof(json));
+  return json;
+}
 export { City, Community };
