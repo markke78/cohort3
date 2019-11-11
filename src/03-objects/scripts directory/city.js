@@ -50,6 +50,10 @@ class City {
   latitude1() {
     return this.latitude;
   }
+
+  longitude1() {
+    return this.longitude;
+  }
   name1() {
     return this.name;
   }
@@ -135,7 +139,7 @@ class Community {
         let b = data.reduce((prev, current) =>
           prev.latitude < current.latitude ? prev : current
         );
-        result = [b.name, b.latitude];
+        result = { name: b.name, latitude: b.latitude };
       }
     });
     return result;
@@ -148,7 +152,7 @@ class Community {
     // }
     await postData(this.url + "all").then(data => {
       for (let b of data) {
-        summary += b.population;
+        summary += parseFloat(b.population);
       }
     });
     return summary;
@@ -176,6 +180,19 @@ class Community {
     });
     return result;
   }
+
+  createNewCard(node, counter, newCity) {
+    let newDiv = document.createElement("div");
+    newDiv.className = "city";
+    newDiv.setAttribute("counter", counter);
+    newDiv.textContent = `City ${counter}:${newCity.name1()}------Latitude:${newCity.latitude1()}------Longtidue:${newCity.longitude1()}------Population:${newCity.population1()}`;
+    let newBtn = document.createElement("button");
+    newBtn.className = "remove";
+    newBtn.textContent = "Remove";
+    newDiv.appendChild(newBtn);
+    node.appendChild(newDiv);
+    return newDiv;
+  }
 }
 async function postData(url = "", data = {}) {
   // Default options are marked with *
@@ -199,4 +216,5 @@ async function postData(url = "", data = {}) {
   // console.log(json, typeof(json));
   return json;
 }
+
 export { City, Community };
