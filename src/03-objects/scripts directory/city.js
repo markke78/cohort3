@@ -97,16 +97,17 @@ class Community {
     return newCity;
   }
   //actually, function deleteCity cannot be uesed async, but it need to be tested, so that's why this function does one more getDataFromServer() becasuse it need to get the data from database to check how many cities.
-  async deleteCity(name) {
+  async deleteCity(key) {
     let cities = [];
-    let key = 0;
-    await this.getDataFromServer().then(data => {
-      for (let b in data) {
-        if (data[b].name == name) {
-          key = data[b].key;
-        }
-      }
-    });
+    // let keys = 0;
+    // await this.getDataFromServer().then(data => {
+    //   for (let b in data) {
+    //     if (data[b].name == name) {
+    //       keys = data[b].key;
+    //     }
+    //   }
+    // });
+    key = parseFloat(key);
     await postData(this.url + "delete", { key: key });
     await this.getDataFromServer().then(data => {
       cities = data;
@@ -116,7 +117,7 @@ class Community {
 
   async getMostNorthern() {
     let result = { name: "", latitude: "" };
-    await postData(this.url + "all").then(data => {
+    await this.getDataFromServer().then(data => {
       let lat = [];
       for (let b of data) {
         lat.push(b.latitude);
@@ -160,9 +161,13 @@ class Community {
 
   async popOperator(name, amount, inAndOut) {
     let result = 0;
+    amount = parseFloat(amount);
+    if (isNaN(amount)) return result;
+    let city = null;
     await postData(this.url + "all").then(data => {
       for (let b of data) {
         if (b.name == name) {
+          b.population = parseFloat(b.population);
           switch (inAndOut) {
             case "moveIn":
               // b.movedIn(amount);
@@ -173,27 +178,49 @@ class Community {
               b.population -= amount;
               break;
           }
-          postData(this.url + "update", b);
+          city = b;
           result = b.population;
         }
       }
     });
+    if (city) await postData(this.url + "update", city);
     return result;
   }
 
   createNewCard(node, counter, newCity) {
     let newDiv = document.createElement("div");
-    newDiv.className = "city";
+    newDiv.className = `city ${
+      parseFloat(newCity.key) % 2 == 0 ? "even" : "odd"
+    }`;
+
+    newDiv.id = newCity.name1() + newCity.key + "div";
     newDiv.setAttribute("counter", counter);
-    newDiv.textContent = `City ${counter}:${newCity.name1()}------Latitude:${newCity.latitude1()}------Longtidue:${newCity.longitude1()}------Population:${newCity.population1()}`;
+    let newLabel = document.createElement("label");
+    newLabel.id = newCity.name1() + newCity.key;
+    newLabel.textContent = `------Population:${newCity.population1()}`;
+    newDiv.textContent = `City ${counter}:${newCity.name1()}------Latitude:${newCity.latitude1()}------Longtidue:${newCity.longitude1()}`;
+    newDiv.appendChild(newLabel);
     let newBtn = document.createElement("button");
     newBtn.className = "remove";
     newBtn.textContent = "Remove";
+    newBtn.setAttribute("key", newCity.key);
     newDiv.appendChild(newBtn);
     node.appendChild(newDiv);
     return newDiv;
   }
+
+  async addCityInInput() {
+    let str = "";
+    await postData(this.url + "all").then(data => {
+      for (let b of data) {
+        str += `<option value='${b.name}' key='${b.key}'> ${b.name} ${b.key}</option>`;
+      }
+    });
+    console.log(str);
+    return str;
+  }
 }
+
 async function postData(url = "", data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {

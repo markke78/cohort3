@@ -31,6 +31,7 @@ test("test community create city", () => {
   expect(
     community.createCity("Taipei", 25.105497, 121.597366, 2500000).name
   ).toBe("Taipei");
+  document.getElementById().textContent = "Your Balance: $" + balance;
 });
 
 test("test delete city working", () => {
