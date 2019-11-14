@@ -96,7 +96,7 @@ class Community {
     postData(this.url + "add", newCity);
     return newCity;
   }
-  //actually, function deleteCity cannot be uesed async, but it need to be tested, so that's why this function does one more getDataFromServer() becasuse it need to get the data from database to check how many cities.
+  //actually, function deleteCity don't need to use async, but it need to be tested, so that's why this function does one more getDataFromServer() becasuse it need to get the data from database to check how many cities.
   async deleteCity(key) {
     let cities = [];
     // let keys = 0;

@@ -28,8 +28,15 @@
 }
 
 .even {
-  background: red;
+  background: rgb(218, 216, 216);
+  height: 30px;
 }
 .odd {
-  background: yellow;
+  background: rgb(245, 245, 178);
+  height: 30px;
+}
+
+.remove {
+  position: fixed;
+  right: 50px;
 }

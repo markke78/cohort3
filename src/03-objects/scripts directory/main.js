@@ -50,5 +50,6 @@ document.addEventListener("click", async e => {
     // await country.deleteCity("Taipei");
     e.target.closest("div").remove();
     topop.textContent = await country.getPopulation();
+    citySelect.innerHTML = await country.addCityInInput();
   }
 });
