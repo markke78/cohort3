@@ -37,6 +37,6 @@
 }
 
 .remove {
-  position: fixed;
-  right: 50px;
+  float: right;
+  margin-right: 40px;
 }

@@ -1,5 +1,3 @@
-//import { postData } from "./fetch.js";
-
 class City {
   constructor(key, name, latitude, longitude, population) {
     this.name = name;
@@ -67,25 +65,19 @@ class Community {
   constructor() {
     this.communityCities = [];
     this.keySeris = 1;
-    this.url = "http://localhost:5000/";
   }
-  async getDataFromServer() {
-    let cities = [];
-    await postData(this.url + "all").then(data => {
-      for (let b of data) {
-        let city = new City(
-          b.key,
-          b.name,
-          b.latitude,
-          b.longitude,
-          b.population
-        );
-        cities.push(city);
+
+  createCity(name, key, latitude, longitude, population) {
+    if (!key <= 0) this.keySeris = key;
+    for (let b of this.communityCities) {
+      if (
+        b.name == name &&
+        b.latitude == latitude &&
+        b.longitude == longitude
+      ) {
+        return { result: false, message: "The City is invailed" };
       }
-    });
-    return cities;
-  }
-  createCity(name, latitude, longitude, population) {
+    }
     const newCity = new City(
       this.keySeris++,
       name,
@@ -93,155 +85,80 @@ class Community {
       longitude,
       population
     );
-    postData(this.url + "add", newCity);
-    return newCity;
-  }
-  //actually, function deleteCity don't need to use async, but it need to be tested, so that's why this function does one more getDataFromServer() becasuse it need to get the data from database to check how many cities.
-  async deleteCity(key) {
-    let cities = [];
-    // let keys = 0;
-    // await this.getDataFromServer().then(data => {
-    //   for (let b in data) {
-    //     if (data[b].name == name) {
-    //       keys = data[b].key;
-    //     }
-    //   }
-    // });
-    key = parseFloat(key);
-    await postData(this.url + "delete", { key: key });
-    await this.getDataFromServer().then(data => {
-      cities = data;
-    });
-    return cities;
+    this.communityCities.push(newCity);
+    return { result: true, newCity: newCity };
   }
 
-  async getMostNorthern() {
-    let result = { name: "", latitude: "" };
-    await this.getDataFromServer().then(data => {
-      let lat = [];
-      for (let b of data) {
-        lat.push(b.latitude);
+  deleteCity(key) {
+    for (let b in this.communityCities) {
+      if (this.communityCities[b].key == key) {
+        this.communityCities.splice(this.communityCities[b], 1);
       }
-      let heighestValue = Math.max(...lat);
-      for (let b of data) {
-        if (b.latitude == heighestValue) {
-          result = { name: b.name, latitude: b.latitude };
-        }
-      }
-    });
-    return result;
+    }
+    return this.communityCities;
   }
 
-  async getMostSouthern() {
-    //let balanceNumbers = [];
-    let result = ["", 0];
-    await postData(this.url + "all").then(data => {
-      if (data.length > 1) {
-        let b = data.reduce((prev, current) =>
-          prev.latitude < current.latitude ? prev : current
-        );
-        result = { name: b.name, latitude: b.latitude };
+  getMostNorthern() {
+    let lat = [];
+    for (let b of this.communityCities) {
+      lat.push(b.latitude1());
+    }
+    let heighestValue = Math.max(...lat);
+    for (let b of this.communityCities) {
+      if (b.latitude1() == heighestValue) {
+        return { name: b.name1(), latitude: b.latitude1() };
       }
-    });
-    return result;
+    }
   }
 
-  async getPopulation() {
+  getMostSouthern() {
+    if (this.communityCities.length < 1) return ["", 0];
+    let b = this.communityCities.reduce((prev, current) =>
+      prev.latitude1() < current.latitude1() ? prev : current
+    );
+    return { name: b.name1(), latitude: b.latitude1() };
+  }
+
+  getPopulation() {
     let summary = 0;
-    // for (let b of this.communityCities) {
-    //   summary += b.population1();
-    // }
-    await postData(this.url + "all").then(data => {
-      for (let b of data) {
-        summary += parseFloat(b.population);
-      }
-    });
+    for (let b of this.communityCities) {
+      summary += isNaN(parseFloat(b.population1()))
+        ? 0
+        : parseFloat(b.population1());
+    }
+
     return summary;
   }
 
-  async popOperator(name, amount, inAndOut) {
-    let result = 0;
+  popOperator(name, key, amount, inAndOut) {
     amount = parseFloat(amount);
-    if (isNaN(amount)) return result;
-    let city = null;
-    await postData(this.url + "all").then(data => {
-      for (let b of data) {
-        if (b.name == name) {
-          b.population = parseFloat(b.population);
-          switch (inAndOut) {
-            case "moveIn":
-              // b.movedIn(amount);
-              b.population += amount;
-              break;
-            case "moveOut":
-              // b.movedOut(amount);
-              b.population -= amount;
-              break;
-          }
-          city = b;
-          result = b.population;
+    if (isNaN(amount)) return null;
+
+    for (let b of this.communityCities) {
+      if (b.name == name && b.key == key) {
+        b.population = parseFloat(b.population);
+        switch (inAndOut) {
+          case "moveIn":
+            b.population += amount;
+            break;
+          case "moveOut":
+            b.population -= amount;
+            break;
         }
+        return b;
       }
-    });
-    if (city) await postData(this.url + "update", city);
-    return result;
+    }
   }
 
-  createNewCard(node, counter, newCity) {
-    let newDiv = document.createElement("div");
-    newDiv.className = `city ${
-      parseFloat(newCity.key) % 2 == 0 ? "even" : "odd"
-    }`;
-
-    newDiv.id = newCity.name1() + newCity.key + "div";
-    newDiv.setAttribute("counter", counter);
-    let newLabel = document.createElement("label");
-    newLabel.id = newCity.name1() + newCity.key;
-    newLabel.textContent = `------Population:${newCity.population1()}`;
-    newDiv.textContent = `City ${counter}:${newCity.name1()}------Latitude:${newCity.latitude1()}------Longtidue:${newCity.longitude1()}`;
-    newDiv.appendChild(newLabel);
-    let newBtn = document.createElement("button");
-    newBtn.className = "remove";
-    newBtn.textContent = "Remove";
-    newBtn.setAttribute("key", newCity.key);
-    newDiv.appendChild(newBtn);
-    node.appendChild(newDiv);
-    return newDiv;
-  }
-
-  async addCityInInput() {
+  addCityInInput() {
     let str = "";
-    await postData(this.url + "all").then(data => {
-      for (let b of data) {
-        str += `<option value='${b.name}' key='${b.key}'> ${b.name} ${b.key}</option>`;
-      }
-    });
-    console.log(str);
+    for (let b of this.communityCities) {
+      str += `<option value='${b.name1()}' key='${b.key}'> ${b.name1()} ${
+        b.key
+      }</option>`;
+    }
     return str;
   }
-}
-
-async function postData(url = "", data = {}) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-      "Content-Type": "application/json"
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: "follow", // manual, *follow, error
-    referrer: "no-referrer", // no-referrer, *client
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
-  });
-
-  const json = await response.json(); // parses JSON response into native JavaScript objects
-  json.status = response.status;
-  json.statusText = response.statusText;
-  // console.log(json, typeof(json));
-  return json;
 }
 
 export { City, Community };
