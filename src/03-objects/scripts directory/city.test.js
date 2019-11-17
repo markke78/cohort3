@@ -89,6 +89,14 @@ test("test addCityInInput working", () => {
   );
 });
 
+test("test 130E working", () => {
+  let a = new City(1, "Calgary", 51.049999, -114.066666, 1392609);
+  let b = a;
+  b.population = 500;
+  expect(a.population).toBe(500);
+  expect(b.population).toBe(500);
+});
+
 // test("test API with city class", () => {
 //   var url = "http://localhost:5000/add";
 //   const community = new Community("community");
