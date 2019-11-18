@@ -17,12 +17,17 @@ class City {
   }
 
   movedOut(num) {
-    if (num >= this.population) {
-      return (this.population = 0);
-    } else if (num > 0) {
+    // if (num >= this.population) {
+    //   return (this.population = 0);
+    // } else if (num > 0) {
+    //   this.population -= num;
+    //   return this.population;
+    // }
+    if (num > 0) {
       this.population -= num;
-      return this.population;
+      if (this.population < 0) this.population = 0;
     }
+    return this.population;
   }
 
   howBig() {
@@ -139,10 +144,10 @@ class Community {
         b.population = parseFloat(b.population);
         switch (inAndOut) {
           case "moveIn":
-            b.population += amount;
+            b.movedIn(amount);
             break;
           case "moveOut":
-            b.population -= amount;
+            b.movedOut(amount);
             break;
         }
         return b;

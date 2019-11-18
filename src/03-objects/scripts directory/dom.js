@@ -12,6 +12,11 @@ const domCity = {
     newLabel.textContent = `------Population:${newCity.population1()}`;
     newDiv.textContent = `City ${counter}:${newCity.name1()}------Latitude:${newCity.latitude1()}------Longtidue:${newCity.longitude1()}`;
     newDiv.appendChild(newLabel);
+    let newLabel2 = document.createElement("label");
+    newLabel2.id = newCity.name1() + newCity.key + "big";
+    newLabel2.textContent = `------Status: ${newCity.howBig()}`;
+    newDiv.appendChild(newLabel2);
+
     let newBtn = document.createElement("button");
     newBtn.className = "remove";
     newBtn.textContent = "Remove";

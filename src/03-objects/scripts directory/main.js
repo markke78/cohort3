@@ -23,6 +23,7 @@ window.onload = async event => {
       b.population
     );
     domCity.createNewCard(cityList, counter++, newCity.newCity);
+    console.log(newCity.newCity);
     topop.textContent = country.getPopulation();
     let mostNorth = country.getMostNorthern();
     northern.textContent = mostNorth.name + "  " + mostNorth.latitude;
@@ -55,7 +56,7 @@ btn1.addEventListener("click", () => {
 });
 
 btn2.addEventListener("click", async () => {
-  let balance = country.popOperator(
+  let city = country.popOperator(
     citySelect.value,
     citySelect.options[citySelect.selectedIndex].getAttribute("key"),
     parseFloat(int5.value),
@@ -64,14 +65,20 @@ btn2.addEventListener("click", async () => {
   document.getElementById(
     citySelect.value +
       citySelect.options[citySelect.selectedIndex].getAttribute("key")
-  ).textContent = "------Population:" + balance.population1();
+  ).textContent = "------Population:" + city.population1();
+  document.getElementById(
+    citySelect.value +
+      citySelect.options[citySelect.selectedIndex].getAttribute("key") +
+      "big"
+  ).textContent = "------Status:" + city.howBig();
+
   topop.textContent = country.getPopulation();
-  updateData(balance);
+  updateData(city);
 });
 
 btn3.addEventListener("click", () => {
   getData();
-  let balance = country.popOperator(
+  let city = country.popOperator(
     citySelect.value,
     citySelect.options[citySelect.selectedIndex].getAttribute("key"),
     parseFloat(int5.value),
@@ -80,9 +87,15 @@ btn3.addEventListener("click", () => {
   document.getElementById(
     citySelect.value +
       citySelect.options[citySelect.selectedIndex].getAttribute("key")
-  ).textContent = "------Population:" + balance.population1();
+  ).textContent = "------Population:" + city.population1();
+  document.getElementById(
+    citySelect.value +
+      citySelect.options[citySelect.selectedIndex].getAttribute("key") +
+      "big"
+  ).textContent = "------Status:" + city.howBig();
+
   topop.textContent = country.getPopulation();
-  updateData(balance);
+  updateData(city);
 });
 
 document.addEventListener("click", e => {
