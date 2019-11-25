@@ -170,8 +170,6 @@ expect.extend({
 });
 
 test("text callback function", () => {
-  // const callback = b => b;
-  // expect(functions.getPeopleFromAbBc(people, callback).length).toEqual(22);
   const peopleABBC = functions.getPeopleFromAbBc(people, "callback");
   expect(peopleABBC.length).toBe(22);
   expect(peopleABBC[0].province).toBe("BC");
@@ -186,6 +184,18 @@ test("text callback function", () => {
   expect(peopleABBC2.length).toBe(22);
   expect(peopleABBC2[0]).toBe("Alex Smith");
   expect(peopleABBC2[21]).toBe("Trent Kerr");
+});
+
+test("total people from AB and BC", () => {
+  const peopleABBC3 = functions.getPeopleFromAbBc(
+    people,
+    functions.getNumPeople
+  );
+  expect(peopleABBC3).toEqual({
+    totalAge: 838,
+    totalAveAge: 38.09,
+    totalPep: 22
+  });
 });
 
 // test('filter people from AB and BC', () => {

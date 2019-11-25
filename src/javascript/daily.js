@@ -1,23 +1,29 @@
 const functions = {
-  //daily assignment on 2019/NOV/08
-  // Hypothetically; You are working for a private company who looks after demographics of people living in BC and Alberta only.  The data you received is from the 4 Western provinces. You want to write a generalized function that loops through the data and only does a “callback” for the people from BC or Alberta.
+  // Based on callback exercise, part 1, now write a function using the generic callback function which returns an object of the total number of people, total age, and the average age of people from BC and Alberta only.
+  //daily assignment on 2019/NOV/21
 
-  // Write two functions:
-  // a generic function to process all of the people from the Western 4 provinces and only “callback” for people from BC or Alberta.  This is a generic function that will be used over and over again. How will we test this?
-  // a function that will be the “callback” function that will create an array of full names (first and last together). How will we test this?
-  // Your tests should ensure each function works on it’s own and then that they
-  // work properly together.
-
-  getPeopleFromAbBc: (people, callback) => {
-    let result = people.filter(person => {
-      return person.province == "AB" || person.province == "BC";
-    });
-
-    if (typeof callback === "function") {
-      let fullNames = callback(result);
-      return fullNames;
+  getNumPeople: people => {
+    let sum = 0;
+    for (let b of people) {
+      sum += b.age;
     }
-
+    return {
+      totalPep: people.length,
+      totalAge: sum,
+      totalAveAge: Math.round((sum / people.length) * 100) / 100
+    };
+  },
+  getPeopleFromAbBc: (people, callback) => {
+    let result = [];
+    for (let b of people) {
+      if (b.province == "AB" || b.province == "BC") {
+        result.push(b);
+      }
+    }
+    if (typeof callback === "function") {
+      let ABBCPeople = callback(result);
+      return ABBCPeople;
+    }
     return result;
   },
 
