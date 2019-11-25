@@ -7,6 +7,7 @@ class MyIcon extends React.Component {
         className="Icon Icon-logo"
         src={this.props.src}
         alt={this.props.name}
+        onClick={this.props.onImageClick}
       />
     );
   }

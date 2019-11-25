@@ -5,24 +5,34 @@ import MyIcon from "./components/MyIcon";
 import icon from "./components/icon.svg";
 import star from "./components/star.svg";
 import tictactoe from "./components/tictactoe.svg";
+import Tictactoe from "./components/tictactoe";
 
 class App extends React.Component {
   constructor() {
     super();
     this.icons = [
-      { src: icon, name: "Mario", heading: "React Starting Page" },
-      { src: tictactoe, name: "Mario3", heading: "React Starting Page" },
-      { src: star, name: "Mario2", heading: "React Starting Page" }
+      {
+        src: icon,
+        name: "Mario",
+        heading: "React Starting Page",
+        onImageClick: this.resetGame
+      },
+      {
+        src: tictactoe,
+        name: "Mario3",
+        heading: "React Starting Page",
+        onImageClick: this.startGame
+      },
+      {
+        src: star,
+        name: "Mario2",
+        heading: "React Starting Page",
+        onImageClick: this.goBack
+      }
     ];
-  }
-
-  render() {
-    return (
-      <div className="App">
-        {this.icons.map(item => (
-          <MyIcon src={item.src} name={item.name} key={item.name} />
-        ))}
-        <header className="App-header">
+    this.sences = {
+      startPage: (
+        <div>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -35,7 +45,37 @@ class App extends React.Component {
           >
             Learn React
           </a>
-        </header>
+        </div>
+      ),
+      gamePage: (
+        <div>
+          <Tictactoe src={this.icons[1].src} name={this.icons[1].name} />
+        </div>
+      )
+    };
+    this.state = { sences: this.sences.startPage };
+  }
+
+  startGame = () => {
+    this.setState({ sences: this.sences.gamePage });
+  };
+
+  goBack = () => {
+    this.setState({ sences: this.sences.startPage });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        {this.icons.map(item => (
+          <MyIcon
+            src={item.src}
+            name={item.name}
+            key={item.name}
+            onImageClick={item.onImageClick}
+          />
+        ))}
+        <header className="App-header">{this.state.sences}</header>
       </div>
     );
   }
