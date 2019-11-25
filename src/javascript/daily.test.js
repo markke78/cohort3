@@ -198,11 +198,62 @@ test("total people from AB and BC", () => {
   });
 });
 
-// test('filter people from AB and BC', () => {
-//   const peopleABBC = functions.peopleABBC(people, 'callback');
-//   expect(funtions.peopleABBC.length).toBe(22);
-//   expect(funtions.peopleABBC[0].province).toBe('BC');
-//   expect(funtions.peopleABBC[1].province).toBe('AB');
+test("Anonymous function working", () => {
+  // let numArray = (function(array) {
+  //   return myArray.sort(function(a, b) {
+  //     return a.num - b.num;
+  //   });
+  // })(myArray);
+  expect(functions.anonymousFunc(myArray)).toEqual([
+    { num: 1, origin: "California", str: "cantaloupe" },
+    { num: 2, origin: "Mexico", str: "lemons" },
+    { num: 3, origin: "Chile", str: "blueberries" },
+    { num: 4, origin: "Brazil", str: "pineapple" },
+    { num: 5, origin: "BC", str: "apples" },
+    { num: 6, origin: "Mexico", str: "avocados" },
+    { num: 7, origin: "Florida", str: "oranges" },
+    { num: 8, origin: "Ecuador", str: "bananas" },
+    { num: 9, origin: "Oregon", str: "pears" }
+  ]);
+  expect(functions.nameFunc(myArray)).toEqual([
+    { num: 5, origin: "BC", str: "apples" },
+    { num: 6, origin: "Mexico", str: "avocados" },
+    { num: 8, origin: "Ecuador", str: "bananas" },
+    { num: 3, origin: "Chile", str: "blueberries" },
+    { num: 1, origin: "California", str: "cantaloupe" },
+    { num: 2, origin: "Mexico", str: "lemons" },
+    { num: 7, origin: "Florida", str: "oranges" },
+    { num: 9, origin: "Oregon", str: "pears" },
+    { num: 4, origin: "Brazil", str: "pineapple" }
+  ]);
+
+  expect(functions.originFunc(myArray)).toEqual([
+    { num: 5, origin: "BC", str: "apples" },
+    { num: 4, origin: "Brazil", str: "pineapple" },
+    { num: 1, origin: "California", str: "cantaloupe" },
+    { num: 3, origin: "Chile", str: "blueberries" },
+    { num: 8, origin: "Ecuador", str: "bananas" },
+    { num: 7, origin: "Florida", str: "oranges" },
+    { num: 6, origin: "Mexico", str: "avocados" },
+    { num: 2, origin: "Mexico", str: "lemons" },
+    { num: 9, origin: "Oregon", str: "pears" }
+  ]);
+});
+
+let myArray = [
+  { num: 5, str: "apples", origin: "BC" },
+  { num: 7, str: "oranges", origin: "Florida" },
+  { num: 2, str: "lemons", origin: "Mexico" },
+  { num: 8, str: "bananas", origin: "Ecuador" },
+  { num: 6, str: "avocados", origin: "Mexico" },
+  { num: 4, str: "pineapple", origin: "Brazil" },
+  { num: 3, str: "blueberries", origin: "Chile" },
+  { num: 9, str: "pears", origin: "Oregon" },
+  { num: 1, str: "cantaloupe", origin: "California" }
+];
+//
+// Do the statements below 3 times, one for each type of function
+//
 
 const data = {
   staff: [

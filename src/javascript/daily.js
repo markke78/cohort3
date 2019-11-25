@@ -1,6 +1,36 @@
+function sortAlphabet(a, b) {
+  return a.str > b.str ? 1 : 0;
+}
+
+const sortoOriginAlphabet = (a, b) => {
+  return a.origin > b.origin ? 1 : 0;
+};
+
 const functions = {
+  // Write 3 functions:  1) Anonymous function 2) Named function, 3) Arrow function.
+  // Write these functions to complete the following exercise.
+  // Sort the array:
+  // 1 By number ascending, using anonymous function
+  // 2 By fruit alphabetic, using named function
+  // 3 By origin reverse alphabetic, using arrow function
+  //daily assignment on 2019/NOV/22
+
   // Based on callback exercise, part 1, now write a function using the generic callback function which returns an object of the total number of people, total age, and the average age of people from BC and Alberta only.
   //daily assignment on 2019/NOV/21
+
+  originFunc: function(myArray) {
+    return myArray.sort(sortoOriginAlphabet);
+  },
+
+  nameFunc: function(myArray) {
+    return myArray.sort(sortAlphabet);
+  },
+
+  anonymousFunc: myArray => {
+    return myArray.sort(function(a, b) {
+      return a.num - b.num;
+    });
+  },
 
   getNumPeople: people => {
     let sum = 0;
