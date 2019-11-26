@@ -7,6 +7,13 @@ const sortoOriginAlphabet = (a, b) => {
 };
 
 const functions = {
+  //2019/NOV/26
+  destructuring: () => {
+    let fullName = ["Mark", "Ke"];
+    let [firstName, lastName] = fullName;
+    return firstName + " " + lastName;
+  },
+
   // Write 3 functions:  1) Anonymous function 2) Named function, 3) Arrow function.
   // Write these functions to complete the following exercise.
   // Sort the array:

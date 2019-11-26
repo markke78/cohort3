@@ -240,6 +240,8 @@ test("Anonymous function working", () => {
   ]);
 });
 
+expect(functions.destructuring()).toEqual("Mark Ke");
+
 let myArray = [
   { num: 5, str: "apples", origin: "BC" },
   { num: 7, str: "oranges", origin: "Florida" },
