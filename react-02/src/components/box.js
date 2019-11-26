@@ -4,7 +4,7 @@ class Box extends Component {
   render() {
     return (
       <div onClick={this.props.onBoxClick} id={this.props.id} className="box">
-        <img src={this.props.content} className="OX"></img>
+        <img src={this.props.content} className="OX" alt=""></img>
       </div>
     );
   }

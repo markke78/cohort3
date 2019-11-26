@@ -49,7 +49,7 @@ class App extends React.Component {
       ),
       gamePage: (
         <div>
-          <Tictactoe src={this.icons[1].src} name={this.icons[1].name} />
+          <Tictactoe />
         </div>
       )
     };
@@ -62,6 +62,10 @@ class App extends React.Component {
 
   goBack = () => {
     this.setState({ sences: this.sences.startPage });
+  };
+
+  resetGame = () => {
+    this.setState({ sences: this.sences.gamePage });
   };
 
   render() {
