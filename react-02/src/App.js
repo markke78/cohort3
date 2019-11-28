@@ -7,6 +7,7 @@ import star from "./components/star.svg";
 import money from "./components/money.svg";
 import tictactoe from "./components/tictactoe.svg";
 import Tictactoe from "./components/tictactoe";
+import ReactAccount from "./components/account";
 
 class App extends React.Component {
   constructor() {
@@ -34,7 +35,7 @@ class App extends React.Component {
         src: money,
         name: "Mario4",
         heading: "React Starting Page",
-        onImageClick: this.account
+        onImageClick: this.myAccount
       }
     ];
     this.sences = {
@@ -58,6 +59,12 @@ class App extends React.Component {
         <div>
           <Tictactoe />
         </div>
+      ),
+      accountPage: (
+        <div className="accountHead">
+          <h1>Welcome to Super Mario Bank</h1>
+          <ReactAccount />
+        </div>
       )
     };
     this.state = { sences: this.sences.startPage };
@@ -65,6 +72,10 @@ class App extends React.Component {
 
   startGame = () => {
     this.setState({ sences: this.sences.gamePage });
+  };
+
+  myAccount = () => {
+    this.setState({ sences: this.sences.accountPage });
   };
 
   goBack = () => {

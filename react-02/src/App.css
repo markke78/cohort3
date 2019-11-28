@@ -82,3 +82,79 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
+.banner {
+  background-color: lightskyblue;
+  text-align: center;
+  height: 5px;
+}
+.money {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.money2 {
+  background-color: #f44336;
+}
+
+.remove {
+  background-color: #008cba;
+}
+
+#int1 {
+  width: 385px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.money4 {
+  background-color: yellow;
+  width: 385px;
+}
+
+.money5 {
+  background-color: rgb(89, 84, 95);
+}
+
+.left {
+  width: 32%;
+
+  float: left;
+}
+
+.right {
+  width: 65%;
+
+  float: left;
+  border-left: solid black;
+}
+
+.acc {
+  border: solid black;
+  border-radius: 10px;
+  width: 500px;
+  margin: 10px;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  float: left;
+  border: solid black;
+}
+
+.accountHead {
+  width: 95%;
+}
+
+.leftInput {
+  margin-bottom: 5px;
+}
