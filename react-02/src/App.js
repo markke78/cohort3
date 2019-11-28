@@ -4,6 +4,7 @@ import "./App.css";
 import MyIcon from "./components/MyIcon";
 import icon from "./components/icon.svg";
 import star from "./components/star.svg";
+import money from "./components/money.svg";
 import tictactoe from "./components/tictactoe.svg";
 import Tictactoe from "./components/tictactoe";
 
@@ -28,6 +29,12 @@ class App extends React.Component {
         name: "Mario2",
         heading: "React Starting Page",
         onImageClick: this.goBack
+      },
+      {
+        src: money,
+        name: "Mario4",
+        heading: "React Starting Page",
+        onImageClick: this.account
       }
     ];
     this.sences = {
@@ -64,9 +71,9 @@ class App extends React.Component {
     this.setState({ sences: this.sences.startPage });
   };
 
-  resetGame = () => {
-    this.setState({ sences: this.sences.gamePage });
-  };
+  // resetGame = () => {
+  //   this.setState({ sences: this.sences.gamePage });
+  // };
 
   render() {
     return (
