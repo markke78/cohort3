@@ -7,37 +7,24 @@ class Tictactoe extends Component {
   constructor() {
     super();
     this.state = {
-      boxes: this.initBox()
+      boxes: Array(9).fill(null),
+      history: [{ squares: Array(9).fill(null), nextPlayer: marioO }],
+      operator: marioO
     };
-    this.operator = marioO;
   }
 
-  initBox = () => {
-    let boxes = [];
-    for (let i = 0; i < 9; i++) {
-      boxes.push({
-        key: i,
-        content: ""
-      });
-    }
-    return boxes;
-  };
-
-  handleBoxClickEvent = (key, content) => {
-    if (content !== "") return;
-    const { boxes } = this.state;
+  handleBoxClickEvent = index => {
+    const { boxes, history, operator } = this.state;
+    if (boxes[index] !== null) return;
     if (this.calculateWinner()) {
       return;
     }
-
-    for (let index in boxes) {
-      if (boxes[index].key === key) {
-        boxes[index].content = this.operator;
-        this.operator = this.operator === marioO ? luigiX : marioO;
-        this.setState({ boxes: boxes });
-        return;
-      }
-    }
+    let newBoxes = boxes.slice();
+    newBoxes[index] = operator;
+    let newOperator = operator === marioO ? luigiX : marioO;
+    history.push({ squares: newBoxes, nextPlayer: newOperator });
+    this.setState({ boxes: newBoxes, history: history, operator: newOperator });
+    return;
   };
 
   calculateWinner = () => {
@@ -54,19 +41,21 @@ class Tictactoe extends Component {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (
-        boxes[a].content !== "" &&
-        boxes[a].content === boxes[b].content &&
-        boxes[a].content === boxes[c].content
-      ) {
-        return boxes[a].content === marioO ? "Mario" : "Luigi";
+      if (boxes[a] !== null && boxes[a] === boxes[b] && boxes[a] === boxes[c]) {
+        return boxes[a] === marioO ? "Mario" : "Luigi";
       }
     }
     return null;
   };
-  resetGame = () => {
-    this.setState({ boxes: this.initBox() });
-    this.operator = marioO;
+
+  timer = (record, index) => {
+    let { history } = this.state;
+    history.splice(index + 1, history.length - index);
+    this.setState({
+      boxes: record.squares,
+      history: history,
+      operator: record.nextPlayer
+    });
   };
 
   render() {
@@ -75,7 +64,8 @@ class Tictactoe extends Component {
     if (winner) {
       status = "Winner: " + winner;
     } else {
-      status = "Next player: " + (this.operator === marioO ? "Mario" : "Luigi");
+      status =
+        "Next player: " + (this.state.operator === marioO ? "Mario" : "Luigi");
     }
     return (
       <div>
@@ -83,16 +73,30 @@ class Tictactoe extends Component {
         <div className="gameArea">
           <img className="gamePage" src={tictactoebg1} alt="innerBox"></img>
           <div className="board">
-            {this.state.boxes.map(obj => {
+            {this.state.boxes.map((box, index) => {
               return (
                 <Box
                   onBoxClick={() => {
-                    this.handleBoxClickEvent(obj.key, obj.content);
+                    this.handleBoxClickEvent(index);
                   }}
-                  key={obj.key}
-                  id={obj.key}
-                  content={obj.content}
+                  key={index}
+                  id={index}
+                  content={box}
                 />
+              );
+            })}
+          </div>
+          <div className="historyBtn">
+            {this.state.history.map((record, index) => {
+              return (
+                <button
+                  key={index}
+                  onClick={() => {
+                    this.timer(record, index);
+                  }}
+                >
+                  Go Back to step {index}
+                </button>
               );
             })}
           </div>

@@ -65,7 +65,15 @@
   top: 80px;
   /* margin: -400px; */
 }
-
+.historyBtn {
+  position: absolute;
+  top: 0%;
+  right: -35%;
+  width: 30%;
+}
+.historyBtn > button {
+  width: 100%;
+}
 .box {
   position: relative;
   display: inline-block;
@@ -125,16 +133,18 @@
 }
 
 .left {
+  background-color: rgb(153, 153, 216);
   width: 32%;
-
   float: left;
+  margin-right: 5px;
 }
 
 .right {
+  background-color: rgb(235, 236, 144);
   width: 65%;
-
   float: left;
   border-left: solid black;
+  margin-left: 5px;
 }
 
 .acc {

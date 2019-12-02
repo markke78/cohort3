@@ -101,25 +101,6 @@ class AccountController {
     // return lowestValue;
   }
 
-  createNewCard(newAccount) {
-    let newDiv = document.createElement("div");
-    newDiv.className = "acc";
-    newDiv.id = newAccount.accountName;
-    let newH5 = document.createElement("h5");
-    newH5.textContent = "Account Type:" + newAccount.accountType1();
-    newDiv.appendChild(newH5);
-    let newH4 = document.createElement("h4");
-    newH4.id = newAccount.accountName + "h4";
-    newH4.textContent = "Your Balance:" + newAccount.balance1();
-    newDiv.appendChild(newH4);
-    let newBtn = document.createElement("button");
-    newBtn.className = "money remove";
-    newBtn.textContent = "Remove";
-    newDiv.appendChild(newBtn);
-    // newBtn.setAttribute('paraentId',newDiv.id)
-    return newDiv;
-  }
-
   replaceOption() {
     let str = "";
     for (let b of this.userAccounts) {
