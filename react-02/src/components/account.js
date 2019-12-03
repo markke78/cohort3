@@ -5,7 +5,6 @@ import AccountDiv from "./AccountDiv";
 
 class ReactAccount extends Component {
   state = { controller: new AccountController() };
-
   addAccount = () => {
     let { controller } = this.state;
     let newAccount = controller.addAccount(
