@@ -141,17 +141,20 @@
 
 .right {
   background-color: rgb(235, 236, 144);
-  width: 65%;
+  width: 67%;
   float: left;
   border-left: solid black;
   margin-left: 5px;
+  line-height: 5px;
 }
 
 .acc {
-  border: solid black;
+  border: solid rgb(81, 212, 20);
   border-radius: 10px;
-  width: 500px;
+  width: 97%;
   margin: 10px;
+  background-color: rgb(202, 241, 110);
+  box-shadow: gray 4px 4px 5px;
 }
 
 .container {
@@ -167,4 +170,57 @@
 
 .leftInput {
   margin-bottom: 5px;
+}
+
+.leftArea {
+  line-height: 5px;
+}
+
+.card {
+  border: solid black;
+  height: auto;
+  padding: center;
+  border-radius: 30px;
+  width: 1600px;
+  font-size: 18px;
+  color: white;
+}
+.cardInside {
+  margin: 10px;
+  width: 100%;
+}
+
+.hr {
+  border: 0;
+  height: 1px;
+  width: 95%;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.int {
+  margin-top: 10px;
+}
+
+.cityList {
+  border: solid black;
+  height: 100px;
+  padding: center;
+  text-align: center;
+  border-radius: 30px;
+  margin-top: 10px;
+}
+
+.even {
+  background: rgb(218, 216, 216);
+  height: 30px;
+}
+.odd {
+  background: rgb(245, 245, 178);
+  height: 30px;
+}
+
+.removeCity {
+  float: right;
+  margin-right: 40px;
 }

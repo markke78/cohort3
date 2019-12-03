@@ -8,6 +8,7 @@ import money from "./components/money.svg";
 import tictactoe from "./components/tictactoe.svg";
 import Tictactoe from "./components/tictactoe";
 import ReactAccount from "./components/account";
+import Migrant from "./components/Migrant";
 
 class App extends React.Component {
   constructor() {
@@ -17,7 +18,7 @@ class App extends React.Component {
         src: icon,
         name: "Mario",
         heading: "React Starting Page",
-        onImageClick: this.resetGame
+        onImageClick: this.cityCommunity
       },
       {
         src: tictactoe,
@@ -65,6 +66,12 @@ class App extends React.Component {
           <h1>Welcome to Super Mario Bank</h1>
           <ReactAccount />
         </div>
+      ),
+      cityCommunity: (
+        <div>
+          <h1>Welcom to Super Mario World</h1>
+          <Migrant />
+        </div>
       )
     };
     this.state = { sences: this.sences.startPage };
@@ -82,9 +89,9 @@ class App extends React.Component {
     this.setState({ sences: this.sences.startPage });
   };
 
-  // resetGame = () => {
-  //   this.setState({ sences: this.sences.gamePage });
-  // };
+  cityCommunity = () => {
+    this.setState({ sences: this.sences.cityCommunity });
+  };
 
   render() {
     return (

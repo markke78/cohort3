@@ -71,13 +71,13 @@ class ReactAccount extends Component {
           <button className="money money5" onClick={this.addAccount}>
             Add
           </button>
-          <div>
+          <div className="leftArea">
             <h3>Account Summary</h3>
             <h5>
-              Total of your account:${this.state.controller.totalBalance()}{" "}
+              Total of Your Account:${this.state.controller.totalBalance()}{" "}
             </h5>
-            <h5>Hightest value account:{this.getHeighest()}</h5>
-            <h5>Lowest Value account account:{this.getLowest()}</h5>
+            <h5>Hightest Value Account:{this.getHeighest()}</h5>
+            <h5>Lowest Value Account:{this.getLowest()}</h5>
           </div>
         </div>
         <div id="accArea" className="split right">
