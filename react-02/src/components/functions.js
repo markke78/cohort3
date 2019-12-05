@@ -184,7 +184,8 @@ class Community {
   createCity(name, key, latitude, longitude, population) {
     if (!key <= 0) this.keySeris = key;
     if (name == "" && latitude == "" && longitude == "" && population == "") {
-      throw {
+      return {
+        result: false,
         message: "Please enter your infromation completely!"
       };
     }

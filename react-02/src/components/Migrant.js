@@ -1,44 +1,78 @@
 import React, { Component } from "react";
-import { City, Community } from "./functions";
+import "../App.css";
+import { Community } from "./functions";
+import MigrantDiv from "./MigrantDiv";
 class Migrant extends Component {
-  state = {};
+  state = { country: new Community() };
+  creatCity = () => {
+    let { country } = this.state;
+    let newCity = country.createCity(
+      this.cityName.value,
+      0,
+      this.latitudeNum.value,
+      this.longitudeNum.value,
+      this.populationNum.value
+    );
+    if (newCity.result == false) {
+      alert(newCity.message);
+      return;
+    }
+    this.setState({ country: country });
+  };
   render() {
+    let { country } = this.state;
     return (
       <div>
         <div className="card">
           <div className="cardInside">
-            <td align="right">City Name:</td>
-            <td align="left">
-              <input type="text" className="int" id="int2" />
-            </td>
-            <td align="right">Latitude:</td>
-            <td align="left">
-              <input type="text" className="int" id="int3" />
-            </td>
-            <td align="right">Longitude:</td>
-            <td align="left">
-              <input type="text" className="int" id="int4" />
-            </td>
-            <td align="right">Population:</td>
-            <td align="left">
-              <input type="text" className="int" id="int5" />
-            </td>
-            <button className="int" id="creatBtn">
-              Create
-            </button>
+            <div>
+              City Name:
+              <input
+                type="text"
+                ref={input => {
+                  this.cityName = input;
+                }}
+              />
+              Latitude:
+              <input
+                type="number"
+                ref={input => {
+                  this.latitudeNum = input;
+                }}
+              />
+              Longitude:{" "}
+              <input
+                type="number"
+                ref={input => {
+                  this.longitudeNum = input;
+                }}
+              />
+              Population:{" "}
+              <input
+                type="number"
+                ref={input => {
+                  this.populationNum = input;
+                }}
+              />{" "}
+              <button className="int" onClick={this.creatCity}>
+                Create
+              </button>
+            </div>
           </div>
           <hr className="hr" />
-          <td>
+          <div>
             Total Population: <span id="topop"></span>
-          </td>
-          <td>
             The Most Northern City: <span id="northern"></span>
-          </td>
-          <td>
             The Most Southern City: <span id="southern"></span>
-          </td>
+          </div>
+
           <hr className="hr" />
-          <input type="text" id="int5" />
+          <input
+            type="number"
+            ref={input => {
+              this.amount = input;
+            }}
+          />
           <form>
             <select name="your account" id="citySelect">
               {/* <option>Checking Account</option>
@@ -56,6 +90,18 @@ class Migrant extends Component {
         </div>
         <div id="cityList">
           <h3>City list:</h3>
+          {country.communityCities.map((city, index) => {
+            return (
+              <MigrantDiv
+                key={index}
+                id={index}
+                population={city.population}
+                city={city.name}
+                longitude={city.longitude}
+                latitude={city.latitude}
+              />
+            );
+          })}
         </div>
       </div>
     );

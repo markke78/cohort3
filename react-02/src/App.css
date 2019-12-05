@@ -187,7 +187,8 @@
 }
 .cardInside {
   margin: 10px;
-  width: 100%;
+  width: auto;
+  padding: center;
 }
 
 .hr {
