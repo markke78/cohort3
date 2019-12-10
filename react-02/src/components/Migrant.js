@@ -17,6 +17,17 @@ class Migrant extends Component {
       alert(newCity.message);
       return;
     }
+
+    this.setState({ country: country });
+    this.cityName.value = "";
+    this.latitudeNum.value = "";
+    this.longitudeNum.value = "";
+    this.populationNum.value = "";
+  };
+
+  handleDeleteCity = id => {
+    let { country } = this.state;
+    country.deleteCity(id);
     this.setState({ country: country });
   };
   render() {
@@ -61,9 +72,15 @@ class Migrant extends Component {
           </div>
           <hr className="hr" />
           <div>
-            Total Population: <span id="topop"></span>
-            The Most Northern City: <span id="northern"></span>
-            The Most Southern City: <span id="southern"></span>
+            {"*****"}
+            Total Population:{country.getPopulation()}
+            {"*****"} <span id="topop"></span>
+            The Most Northern City:{country.getMostNorthern()}
+            {"*****"}
+            <span id="northern"></span>
+            The Most Southern City:{country.getMostSouthern()}
+            {"*****"}
+            <span id="southern"></span>
           </div>
 
           <hr className="hr" />
@@ -75,10 +92,13 @@ class Migrant extends Component {
           />
           <form>
             <select name="your account" id="citySelect">
-              {/* <option>Checking Account</option>
-                  <option>Saving Account</option>
-                  <option>RRSP</option>
-                  <option>TFSA</option> */}
+              {country.communityCities.map((city, index) => {
+                return (
+                  <option key={index} value={city.name}>
+                    {city.name}
+                  </option>
+                );
+              })}
             </select>
           </form>
           <button className="int" id="moveInBtn">
@@ -88,7 +108,7 @@ class Migrant extends Component {
             Move Out
           </button>
         </div>
-        <div id="cityList">
+        <div className="cityList">
           <h3>City list:</h3>
           {country.communityCities.map((city, index) => {
             return (
@@ -99,6 +119,7 @@ class Migrant extends Component {
                 city={city.name}
                 longitude={city.longitude}
                 latitude={city.latitude}
+                removeCity={() => this.handleDeleteCity(city.key)}
               />
             );
           })}

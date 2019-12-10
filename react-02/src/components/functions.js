@@ -226,7 +226,7 @@ class Community {
     let heighestValue = Math.max(...lat);
     for (let b of this.communityCities) {
       if (b.latitude1() == heighestValue) {
-        return { name: b.name1(), latitude: b.latitude1() };
+        return b.name1();
       }
     }
   }
@@ -236,7 +236,7 @@ class Community {
     let b = this.communityCities.reduce((prev, current) =>
       prev.latitude1() < current.latitude1() ? prev : current
     );
-    return { name: b.name1(), latitude: b.latitude1() };
+    return b.name1();
   }
 
   getPopulation() {

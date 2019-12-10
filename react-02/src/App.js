@@ -69,7 +69,9 @@ class App extends React.Component {
       ),
       cityCommunity: (
         <div>
-          <h1>Welcom to Super Mario World</h1>
+          <div className="marioWorld">
+            <h1>Welcom to Super Mario World</h1>
+          </div>
           <Migrant />
         </div>
       )

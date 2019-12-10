@@ -8,8 +8,11 @@ class MigrantDiv extends Component {
         }`}
       >
         <h5>
-          City:{this.props.city} Latitude:{this.props.latitude}Longtidue:{" "}
-          {this.props.longtidue} Population: {this.props.population}
+          City:{this.props.city} Latitude:{this.props.latitude}Longitude:{" "}
+          {this.props.longitude} Population: {this.props.population}
+          <button className="removeCity" onClick={this.props.removeCity}>
+            Remove
+          </button>
         </h5>
       </div>
     );
