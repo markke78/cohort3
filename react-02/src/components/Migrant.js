@@ -2,8 +2,26 @@ import React, { Component } from "react";
 import "../App.css";
 import { Community } from "./functions";
 import MigrantDiv from "./MigrantDiv";
+import {
+  postData,
+  getData,
+  addData,
+  clearData,
+  deleteData,
+  updateData
+} from "./api.js";
+
 class Migrant extends Component {
   state = { country: new Community() };
+  componentDidMount = async () => {
+    let { country } = this.state;
+    let onLoad = await getData();
+    for (let b of onLoad) {
+      country.createCity(b.name, b.key, b.latitude, b.longitude, b.population);
+    }
+    this.setState({ country: country });
+  };
+
   creatCity = () => {
     let { country } = this.state;
     let newCity = country.createCity(
@@ -18,6 +36,8 @@ class Migrant extends Component {
       return;
     }
 
+    addData(newCity.newCity);
+
     this.setState({ country: country });
     this.cityName.value = "";
     this.latitudeNum.value = "";
@@ -25,9 +45,25 @@ class Migrant extends Component {
     this.populationNum.value = "";
   };
 
+  operatePop(operator) {
+    let { country } = this.state;
+
+    let city = country.popOperator(
+      this.cityList.value,
+      this.cityList.options[this.cityList.selectedIndex].getAttribute("num"),
+      this.amount.value,
+      operator
+    );
+
+    updateData(city);
+
+    this.setState({ country: country });
+  }
+
   handleDeleteCity = id => {
     let { country } = this.state;
     country.deleteCity(id);
+    deleteData(id);
     this.setState({ country: country });
   };
   render() {
@@ -91,20 +127,37 @@ class Migrant extends Component {
             }}
           />
           <form>
-            <select name="your account" id="citySelect">
+            <select
+              ref={select => {
+                this.cityList = select;
+              }}
+            >
               {country.communityCities.map((city, index) => {
                 return (
-                  <option key={index} value={city.name}>
+                  <option key={index + 1} num={index + 1} value={city.name}>
                     {city.name}
                   </option>
                 );
               })}
             </select>
           </form>
-          <button className="int" id="moveInBtn">
+          <button
+            className="int"
+            id="moveInBtn"
+            onClick={() => {
+              this.operatePop("moveIn");
+            }}
+          >
             Move In
           </button>
-          <button className="int" id="noveOutBtn">
+
+          <button
+            className="int"
+            id="noveOutBtn"
+            onClick={() => {
+              this.operatePop("moveOut");
+            }}
+          >
             Move Out
           </button>
         </div>

@@ -128,6 +128,7 @@ class City {
 
   movedIn(num) {
     if (num > 0) this.population += num;
+    console.log(this.population);
     return this.population;
   }
 
@@ -252,6 +253,7 @@ class Community {
 
   popOperator(name, key, amount, inAndOut) {
     amount = parseFloat(amount);
+    key = parseFloat(key);
     if (isNaN(amount)) return null;
 
     for (let b of this.communityCities) {
