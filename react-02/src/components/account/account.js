@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-import { AccountController } from "./functions";
+import { AccountController } from "../functions";
 import AccountDiv from "./AccountDiv";
 
 class ReactAccount extends Component {

@@ -2,14 +2,14 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import MyIcon from "./components/MyIcon";
-import icon from "./components/icon.svg";
-import star from "./components/star.svg";
-import money from "./components/money.svg";
-import tictactoe from "./components/tictactoe.svg";
+import icon from "./components/icon/icon.svg";
+import star from "./components/icon/star.svg";
+import money from "./components/icon/money.svg";
+import tictactoe from "./components/icon/tictactoe.svg";
 import smb from "./image/smb.jpg";
-import Tictactoe from "./components/tictactoe";
-import ReactAccount from "./components/account";
-import Migrant from "./components/Migrant";
+import Tictactoe from "./components/tictactoe/tictactoe";
+import ReactAccount from "./components/account/account";
+import Migrant from "./components/city/Migrant";
 
 class App extends React.Component {
   constructor() {

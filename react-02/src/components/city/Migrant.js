@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-import { Community } from "./functions";
+import { Community } from "../functions";
 import MigrantDiv from "./MigrantDiv";
 import {
   postData,
