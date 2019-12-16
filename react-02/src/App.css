@@ -7,14 +7,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: none;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(12, 12, 12);
 }
 
 .App-link {
@@ -55,6 +55,7 @@
 .gameArea {
   position: relative;
   width: 100%;
+  /* margin-top: 60px; */
 }
 .board {
   position: absolute;
@@ -177,13 +178,15 @@
 }
 
 .card {
-  border: solid black;
+  border: solid rgb(7, 78, 13);
+  border-width: 5px;
   height: auto;
   padding: center;
   border-radius: 30px;
   width: 1600px;
   font-size: 18px;
   color: white;
+  background: rgba(7, 160, 53, 0.5);
 }
 .cardInside {
   margin: 10px;
@@ -209,6 +212,18 @@
   text-align: center;
   border-radius: 30px;
   margin-top: 10px;
+  color: rgb(0, 0, 0);
+}
+
+.cityList1 {
+  height: auto;
+  padding: center;
+  text-align: center;
+  border-radius: 30px;
+  margin-top: 10px;
+  color: rgb(80, 80, 85);
+  text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 2px 2px 2px black;
 }
 
 .even {
@@ -235,8 +250,46 @@
 }
 
 .marioWorld {
-  background-color: rgb(0, 225, 255);
+  background-color: rgba(211, 107, 9, 0.5);
   height: 100px;
   color: rgb(248, 244, 9);
   font-style: italic;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 100px;
+  text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 2px 2px 2px black;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -999;
+}
+.bg img {
+  min-height: 100%;
+  width: 100%;
+}
+
+.iconArea {
+  background-color: rgba(241, 99, 106, 0.5);
+}
+
+.status {
+  width: 500px;
+  margin: auto;
+  line-height: 150px;
+  text-align: center;
+  font-family: "微軟正黑體", "arial black", sans-serif;
+  color: rgb(252, 249, 88);
+  text-align: center;
+
+  margin: 5px 5px 5px 5px;
+  font-size: 30px;
+
+  text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 2px 2px 2px black;
 }

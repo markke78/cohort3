@@ -6,6 +6,7 @@ import icon from "./components/icon.svg";
 import star from "./components/star.svg";
 import money from "./components/money.svg";
 import tictactoe from "./components/tictactoe.svg";
+import smb from "./image/smb.jpg";
 import Tictactoe from "./components/tictactoe";
 import ReactAccount from "./components/account";
 import Migrant from "./components/Migrant";
@@ -54,17 +55,26 @@ class App extends React.Component {
           >
             Learn React
           </a>
+          <div className="bg">
+            <img src={smb} />
+          </div>
         </div>
       ),
       gamePage: (
         <div>
           <Tictactoe />
+          <div className="bg">
+            <img src={smb} />
+          </div>
         </div>
       ),
       accountPage: (
         <div className="accountHead">
           <h1>Welcome to Super Mario Bank</h1>
           <ReactAccount />
+          <div className="bg">
+            <img src={smb} />
+          </div>
         </div>
       ),
       cityCommunity: (
@@ -73,6 +83,9 @@ class App extends React.Component {
             <h1>Welcom to Super Mario World</h1>
           </div>
           <Migrant />
+          <div className="bg">
+            <img src={smb} />
+          </div>
         </div>
       )
     };
@@ -98,14 +111,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.icons.map(item => (
-          <MyIcon
-            src={item.src}
-            name={item.name}
-            key={item.name}
-            onImageClick={item.onImageClick}
-          />
-        ))}
+        <div className="iconArea">
+          {this.icons.map(item => (
+            <MyIcon
+              src={item.src}
+              name={item.name}
+              key={item.name}
+              onImageClick={item.onImageClick}
+            />
+          ))}
+        </div>
+
         <header className="App-header">{this.state.sences}</header>
       </div>
     );

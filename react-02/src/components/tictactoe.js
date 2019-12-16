@@ -69,7 +69,7 @@ class Tictactoe extends Component {
     }
     return (
       <div>
-        <div>{status}</div>
+        <div className="status">{status}</div>
         <div className="gameArea">
           <img className="gamePage" src={tictactoebg1} alt="innerBox"></img>
           <div className="board">

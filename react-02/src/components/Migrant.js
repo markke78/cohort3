@@ -54,7 +54,7 @@ class Migrant extends Component {
       this.amount.value,
       operator
     );
-
+    console.log(city);
     updateData(city);
 
     this.setState({ country: country });
@@ -162,7 +162,7 @@ class Migrant extends Component {
           </button>
         </div>
         <div className="cityList">
-          <h3>City list:</h3>
+          <h3 className="cityList1">City List:</h3>
           {country.communityCities.map((city, index) => {
             return (
               <MigrantDiv
