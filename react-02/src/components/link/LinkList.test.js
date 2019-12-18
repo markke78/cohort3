@@ -35,4 +35,7 @@ test("check class LikedList working", () => {
   for (let b of m) {
     console.log(b.subject);
   }
+
+  m.gatTotal();
+  expect(m.gatTotal(this.head)).toBe();
 });

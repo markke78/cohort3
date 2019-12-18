@@ -77,6 +77,18 @@ class LinkedList {
     }
   }
 
+  sumAmount(flag) {
+    if (flag.forwardNode === null) {
+      return flag.amount;
+    } else {
+      return this.sumAmount(flag.forwardNode) + flag.amount;
+    }
+  }
+
+  gatTotal() {
+    this.sumAmount(this.head);
+  }
+
   *value() {
     let current = this.head;
     while (current !== null) {
