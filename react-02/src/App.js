@@ -5,6 +5,7 @@ import MyIcon from "./components/MyIcon";
 import icon from "./components/icon/icon.svg";
 import star from "./components/icon/star.svg";
 import money from "./components/icon/money.svg";
+import link from "./components/icon/link.svg";
 import tictactoe from "./components/icon/tictactoe.svg";
 import smb from "./image/smb.jpg";
 import Tictactoe from "./components/tictactoe/tictactoe";
@@ -38,6 +39,12 @@ class App extends React.Component {
         name: "Mario4",
         heading: "React Starting Page",
         onImageClick: this.myAccount
+      },
+      {
+        src: link,
+        name: "Mario5",
+        heading: "React Starting Page"
+        // onImageClick: this.linkedList
       }
     ];
     this.sences = {

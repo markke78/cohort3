@@ -276,6 +276,9 @@
 
 .iconArea {
   background-color: rgba(241, 99, 106, 0.5);
+  height: 150px;
+  vertical-align: middle;
+  line-height: 250px;
 }
 
 .status {

@@ -33,9 +33,10 @@ test("check class LikedList working", () => {
   m.next();
   expect(m.flag.subject).toBe("manySubject");
   for (let b of m) {
-    console.log(b.subject);
+    console.log(b.amount);
   }
 
-  m.gatTotal();
-  expect(m.gatTotal(this.head)).toBe();
+  m.first();
+  expect(m.flag.subject).toBe("whatever");
+  expect(m.gatTotal()).toBe(20);
 });
