@@ -11,6 +11,7 @@ import smb from "./image/smb.jpg";
 import Tictactoe from "./components/tictactoe/tictactoe";
 import ReactAccount from "./components/account/account";
 import Migrant from "./components/city/Migrant";
+import LinkListHook from "./components/link/LinkListHook";
 
 class App extends React.Component {
   constructor() {
@@ -43,8 +44,8 @@ class App extends React.Component {
       {
         src: link,
         name: "Mario5",
-        heading: "React Starting Page"
-        // onImageClick: this.linkedList
+        heading: "React Starting Page",
+        onImageClick: this.linkedList
       }
     ];
     this.sences = {
@@ -94,6 +95,14 @@ class App extends React.Component {
             <img src={smb} />
           </div>
         </div>
+      ),
+      linkedList: (
+        <div>
+          <LinkListHook />
+          <div className="bg">
+            <img src={smb} />
+          </div>
+        </div>
       )
     };
     this.state = { sences: this.sences.startPage };
@@ -113,6 +122,10 @@ class App extends React.Component {
 
   cityCommunity = () => {
     this.setState({ sences: this.sences.cityCommunity });
+  };
+
+  linkedList = () => {
+    this.setState({ sences: this.sences.linkedList });
   };
 
   render() {

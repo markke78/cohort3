@@ -6,37 +6,43 @@ test("check class LikedList working", () => {
   m.insert("whatever", 3);
   m.insert("moreWhatever", 6);
   m.insert("whenever", 7);
-
-  m.first();
-  expect(m.flag.subject).toBe("subject");
-  m.last();
-  expect(m.flag.subject).toBe("whenever");
   m.previous();
   expect(m.flag.subject).toBe("moreWhatever");
-  m.next();
-  expect(m.flag.subject).toBe("whenever");
-  m.first();
-  m.delete();
-  expect(m.flag.subject).toBe("whatever");
-  m.last();
-  m.delete();
-  expect(m.flag.subject).toBe("moreWhatever");
-
-  m.insert("newSubject", 8);
-  m.previous();
-  m.delete();
-  expect(m.flag.subject).toBe("newSubject");
-
-  m.last();
-  m.previous();
-  m.insert("manySubject", 9);
-  m.next();
-  expect(m.flag.subject).toBe("manySubject");
+  console.log(m);
   for (let b of m) {
-    console.log(b.amount);
+    console.log(b.subject);
   }
 
-  m.first();
-  expect(m.flag.subject).toBe("whatever");
-  expect(m.gatTotal()).toBe(20);
+  //   m.first();
+  //   expect(m.flag.subject).toBe("subject");
+  //   m.last();
+  //   expect(m.flag.subject).toBe("whenever");
+  //   m.previous();
+  //   expect(m.flag.subject).toBe("moreWhatever");
+  //   m.next();
+  //   expect(m.flag.subject).toBe("whenever");
+  //   m.first();
+  //   m.delete();
+  //   expect(m.flag.subject).toBe("whatever");
+  //   m.last();
+  //   m.delete();
+  //   expect(m.flag.subject).toBe("moreWhatever");
+
+  //   m.insert("newSubject", 8);
+  //   m.previous();
+  //   m.delete();
+  //   expect(m.flag.subject).toBe("newSubject");
+
+  //   m.last();
+  //   m.previous();
+  //   m.insert("manySubject", 9);
+  //   m.next();
+  //   expect(m.flag.subject).toBe("manySubject");
+  //   for (let b of m) {
+  //     console.log(b.amount);
+  //   }
+
+  //   m.first();
+  //   expect(m.flag.subject).toBe("whatever");
+  //   expect(m.gatTotal()).toBe(20);
 });
