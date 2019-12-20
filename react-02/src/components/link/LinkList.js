@@ -77,7 +77,7 @@ class LinkedList {
     }
   }
 
-  gatTotal() {
+  getTotal() {
     return this.sumAmount(this.head);
   }
 

@@ -37,5 +37,5 @@ test("check class LikedList working", () => {
 
   m.first();
   expect(m.flag.subject).toBe("whatever");
-  expect(m.gatTotal()).toBe(20);
+  expect(m.getTotal()).toBe(20);
 });
