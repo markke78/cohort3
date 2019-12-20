@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import LinkedList from "./LinkList";
 
 const List = props => {
-  const [linked, setLinked] = useState({})
+  const [linked, setLinked] = useState({});
   useEffect(() => {
-    if (!linked){
-      setLinked(new LinkedList)
-    };
-  })
-  }
+    if (!linked) {
+      setLinked(new LinkedList());
+    }
+  });
 
   return (
     <div>
