@@ -1,0 +1,12 @@
+.inNode {
+    border: black 1px;
+    border-style: double;
+    width: 100%;
+}
+.nodeList {
+    width: 50%;
+}
+.flag {
+    color: red;
+    font-weight: bold;
+}

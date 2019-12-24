@@ -1,7 +1,7 @@
-import LinkedList from "./LinkList";
+import LinkedListDouble from "./LinkedListDouble";
 
 test("check class LikedList working", () => {
-  let m = new LinkedList();
+  let m = new LinkedListDouble();
   m.insert("subject", 5);
   m.insert("whatever", 3);
   m.insert("moreWhatever", 6);
