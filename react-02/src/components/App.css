@@ -297,7 +297,7 @@
     1px 1px 0 #000, 2px 2px 2px black;
 }
 
-.inNode {
+/* .inNode {
   border: black 1px;
   border-style: double;
   width: 100%;
@@ -308,4 +308,4 @@
 .flag {
   color: red;
   font-weight: bold;
-}
+} */
