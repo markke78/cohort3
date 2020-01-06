@@ -11,32 +11,10 @@ const List = props => {
     if (!linked) {
       setLinked(new LinkedList());
     }
-    // while use setLinked outside useEffect, if the value is different, it will trigger this function
-    // and update the page
     setLinked(linked);
   }, [linked]);
   const changeValue = () => {
     linked.insert(subjectName.current.value, amount.current.value);
-    setLinked(cloneLinked(linked));
-  };
-  const next = () => {
-    linked.next();
-    setLinked(cloneLinked(linked));
-  };
-  const previous = () => {
-    linked.previous();
-    setLinked(cloneLinked(linked));
-  };
-  const last = () => {
-    linked.last();
-    setLinked(cloneLinked(linked));
-  };
-  const first = () => {
-    linked.first();
-    setLinked(cloneLinked(linked));
-  };
-  const handleDeleteEvent = () => {
-    linked.delete();
     setLinked(cloneLinked(linked));
   };
   const cloneLinked = linked => {
@@ -47,12 +25,10 @@ const List = props => {
     );
     return clone;
   };
-
   const creatNewNode = e => {
     if (linked === null) return;
     return listAllNode(linked.head, linked.flag);
   };
-  //the flag is head now, but it will be changed to next flag.
   const listAllNode = (flag, current) => {
     if (flag === null) return;
     if (flag.forwardNode === null) {
@@ -78,6 +54,10 @@ const List = props => {
       );
     }
   };
+  const handleDeleteEvent = () => {
+    linked.delete();
+    setLinked(cloneLinked(linked));
+  };
   return (
     <div>
       <div className="linkHead">
@@ -97,39 +77,39 @@ const List = props => {
           </button>
           <button
             className="submitLL"
-            onClick={e => {
-              first(e);
-            }}
+            // onClick={e => {
+            //   first(e);
+            // }}
           >
             First
           </button>
           <button
             className="submitLL"
-            onClick={e => {
-              last(e);
-            }}
+            // onClick={e => {
+            //   last(e);
+            // }}
           >
             Last
           </button>
           <button
-            disabled={linked.flag === linked.head ? true : false}
+            // disabled={linked.flag === linked.head ? true : false}
             className="submitLL"
-            onClick={e => {
-              previous(e);
-            }}
+            // onClick={e => {
+            //   previous(e);
+            // }}
           >
             Previous
           </button>
           <button
-            disabled={
-              linked.flag === null || linked.flag.forwardNode === null
-                ? true
-                : false
-            }
+            // disabled={
+            //   linked.flag === null || linked.flag.forwardNode === null
+            //     ? true
+            //     : false
+            // }
             className="submitLL"
-            onClick={e => {
-              next(e);
-            }}
+            // onClick={e => {
+            //   next(e);
+            // }}
           >
             Next
           </button>
