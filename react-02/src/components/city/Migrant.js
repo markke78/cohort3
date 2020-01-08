@@ -2,14 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import { Community } from "../functions";
 import MigrantDiv from "./MigrantDiv";
-import {
-  postData,
-  getData,
-  addData,
-  clearData,
-  deleteData,
-  updateData
-} from "./api.js";
+import { getData, addData, deleteData, updateData } from "./api.js";
 
 class Migrant extends Component {
   state = { country: new Community() };
@@ -31,7 +24,7 @@ class Migrant extends Component {
       this.longitudeNum.value,
       this.populationNum.value
     );
-    if (newCity.result == false) {
+    if (newCity.result === false) {
       alert(newCity.message);
       return;
     }

@@ -4,7 +4,7 @@ const NewNode = props => {
     <div className="inNode1">
       <span> Name: {props.name} </span>
       <span> Age: {props.age} </span>
-      <img className="linkPics" src={props.src} />
+      <img className="linkPics" src={props.src} alt="" />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { ThemeContext } from "../context/ThemeContext";
 
 const NewNode = props => {
   const context = useContext(ThemeContext);
-  let [fColor, setFColor] = useState(context.fontColor);
+  let [fColor] = useState(context.fontColor);
   return (
     <div className="inNode" style={{ color: fColor }}>
       <span> Amount: {props.amount} </span>

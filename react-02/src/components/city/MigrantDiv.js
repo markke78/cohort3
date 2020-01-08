@@ -4,7 +4,7 @@ class MigrantDiv extends Component {
     return (
       <div
         className={`city ${
-          parseFloat(this.props.id) % 2 == 0 ? "even" : "odd"
+          parseFloat(this.props.id) % 2 === 0 ? "even" : "odd"
         }`}
       >
         <h5>

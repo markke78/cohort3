@@ -8,7 +8,6 @@ import money from "./components/icon/money.svg";
 import link from "./components/icon/link.svg";
 import tictactoe from "./components/icon/tictactoe.svg";
 import context from "./components/icon/context.svg";
-import smb from "./image/smb.jpg";
 import Tictactoe from "./components/tictactoe/tictactoe";
 import ReactAccount from "./components/account/account";
 import Migrant from "./components/city/Migrant";
@@ -16,9 +15,10 @@ import LinkListHook from "./components/link/LinkListHook";
 import Fire from "./components/icon/Fire.svg";
 import InAndOut from "./components/FIFO&FIFO/InAndOut";
 import { Theme } from "./components/context/ContextMain";
-import { ThemeContextProvider } from "./components/context/ThemeContext";
+import { ThemeContext } from "./components/context/ThemeContext";
 
 class App extends React.Component {
+  static contextType = ThemeContext;
   constructor() {
     super();
     this.icons = [
@@ -80,26 +80,17 @@ class App extends React.Component {
           >
             Learn React
           </a>
-          <div className="bg">
-            <img src={smb} />
-          </div>
         </div>
       ),
       gamePage: (
         <div>
           <Tictactoe />
-          <div className="bg">
-            <img src={smb} />
-          </div>
         </div>
       ),
       accountPage: (
         <div className="accountHead">
           <h1>Welcome to Super Mario Bank</h1>
           <ReactAccount />
-          <div className="bg">
-            <img src={smb} />
-          </div>
         </div>
       ),
       cityCommunity: (
@@ -108,34 +99,21 @@ class App extends React.Component {
             <h1>Welcom to Super Mario World</h1>
           </div>
           <Migrant />
-          <div className="bg">
-            <img src={smb} />
-          </div>
         </div>
       ),
       linkedList: (
         <div>
           <LinkListHook />
-          <div className="bg">
-            <img src={smb} />
-          </div>
         </div>
       ),
       inAndOut: (
         <div>
           <InAndOut />
-          <div className="bg">
-            <img src={smb} />
-          </div>
         </div>
       ),
       myContext: (
         <div>
           <Theme />
-
-          <div className="bg">
-            <img src={smb} />
-          </div>
         </div>
       )
     };
@@ -171,6 +149,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.context);
     return (
       <div className="App">
         <div className="iconArea">
@@ -184,9 +163,13 @@ class App extends React.Component {
           ))}
         </div>
 
-        <header className="App-header">
-          <ThemeContextProvider>{this.state.sences}</ThemeContextProvider>
-        </header>
+        <header className="App-header">{this.state.sences}</header>
+        <div
+          className="bg"
+          style={{ backgroundImage: "url(" + this.context.bgPic + ")" }}
+        >
+          {/* <img src= {smb}/> */}
+        </div>
       </div>
     );
   }

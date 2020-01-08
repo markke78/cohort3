@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { ThemeContext } from "./ThemeContext.js";
+import smb from "../../image/smb.png";
+import smb1 from "../../image/smb1.png";
 
 class Theme extends Component {
   static contextType = ThemeContext;
   render() {
-    console.log(this.context);
+    // console.log(this.context);
     return (
       <div>
         <h2>Welcome to Word Controller</h2>
@@ -19,6 +21,16 @@ class Theme extends Component {
               <option value="Default">Black(Default)</option>
               <option value="purple">Purple</option>
               <option value="blue">Blue</option>
+            </select>
+          </label>
+          <br></br>
+          <br></br>
+
+          <label className="lbllist">
+            Select Font Color:
+            <select value={this.context.bgPic} onChange={this.context.setBgPic}>
+              <option value={smb}>pic1(Default)</option>
+              <option value={smb1}>pic2</option>
             </select>
           </label>
           <br></br>

@@ -40,7 +40,7 @@ class AccountController {
 
   isRepeat(accountName) {
     for (let b of this.userAccounts) {
-      if (b.accountName == accountName) {
+      if (b.accountName === accountName) {
         return true;
       }
     }
@@ -49,11 +49,11 @@ class AccountController {
 
   accountOperation(accountName, amount, operator) {
     for (let b of this.userAccounts) {
-      if (accountName == b.accountName) {
-        if (operator == "deposit") {
+      if (accountName === b.accountName) {
+        if (operator === "deposit") {
           b.deposit(amount);
         }
-        if (operator == "withdraw") {
+        if (operator === "withdraw") {
           b.withdraw(amount);
         }
         return b.balance1();
@@ -76,7 +76,7 @@ class AccountController {
     }
     let heighestValue = Math.max(...balanceNumbers);
     for (let b of this.userAccounts) {
-      if (b.balance1() == heighestValue) {
+      if (b.balance1() === heighestValue) {
         return [b.accountType1(), b.balance1()];
         // return {"type":b.accountType1(),"balance":b.balance1()};
       }
@@ -104,7 +104,7 @@ class AccountController {
 
   removeAccount(accountName) {
     for (let b in this.userAccounts) {
-      if (this.userAccounts[b].accountName == accountName) {
+      if (this.userAccounts[b].accountName === accountName) {
         this.userAccounts.splice(b, 1);
         break;
       }
@@ -184,7 +184,12 @@ class Community {
 
   createCity(name, key, latitude, longitude, population) {
     if (!key <= 0) this.keySeris = key;
-    if (name == "" && latitude == "" && longitude == "" && population == "") {
+    if (
+      name === "" &&
+      latitude === "" &&
+      longitude === "" &&
+      population === ""
+    ) {
       return {
         result: false,
         message: "Please enter your infromation completely!"
@@ -192,9 +197,9 @@ class Community {
     }
     for (let b of this.communityCities) {
       if (
-        b.name == name &&
-        b.latitude == latitude &&
-        b.longitude == longitude
+        b.name === name &&
+        b.latitude === latitude &&
+        b.longitude === longitude
       ) {
         return { result: false, message: "The City is invailed" };
       }
@@ -212,7 +217,7 @@ class Community {
 
   deleteCity(key) {
     for (let b in this.communityCities) {
-      if (this.communityCities[b].key == key) {
+      if (this.communityCities[b].key === key) {
         this.communityCities.splice(this.communityCities[b], 1);
       }
     }
@@ -226,7 +231,7 @@ class Community {
     }
     let heighestValue = Math.max(...lat);
     for (let b of this.communityCities) {
-      if (b.latitude1() == heighestValue) {
+      if (b.latitude1() === heighestValue) {
         return b.name1();
       }
     }
@@ -257,7 +262,7 @@ class Community {
     if (isNaN(amount)) return null;
 
     for (let b of this.communityCities) {
-      if (b.name == name && b.key == key) {
+      if (b.name === name && b.key === key) {
         b.population = parseFloat(b.population);
         switch (inAndOut) {
           case "moveIn":
@@ -265,6 +270,8 @@ class Community {
             break;
           case "moveOut":
             b.movedOut(amount);
+            break;
+          default:
             break;
         }
         return b;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Stack from "./Stack";
 import Queue from "./Queue";
 import NewNode from "./LinkDiv";

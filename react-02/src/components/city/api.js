@@ -27,7 +27,7 @@ async function updateData(cityObj) {
   return data;
 }
 
-const url = "http://127.0.0.1:5000/";
+//const url = "http://127.0.0.1:5000/";
 
 async function postData(url = "", data = {}) {
   // Default options are marked with *
