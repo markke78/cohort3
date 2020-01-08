@@ -7,11 +7,16 @@ import star from "./components/icon/star.svg";
 import money from "./components/icon/money.svg";
 import link from "./components/icon/link.svg";
 import tictactoe from "./components/icon/tictactoe.svg";
+import context from "./components/icon/context.svg";
 import smb from "./image/smb.jpg";
 import Tictactoe from "./components/tictactoe/tictactoe";
 import ReactAccount from "./components/account/account";
 import Migrant from "./components/city/Migrant";
 import LinkListHook from "./components/link/LinkListHook";
+import Fire from "./components/icon/Fire.svg";
+import InAndOut from "./components/FIFO&FIFO/InAndOut";
+import { Theme } from "./components/context/ContextMain";
+import { ThemeContextProvider } from "./components/context/ThemeContext";
 
 class App extends React.Component {
   constructor() {
@@ -46,6 +51,18 @@ class App extends React.Component {
         name: "Mario5",
         heading: "React Starting Page",
         onImageClick: this.linkedList
+      },
+      {
+        src: Fire,
+        name: "Mario6",
+        heading: "React Starting Page",
+        onImageClick: this.inAndOut
+      },
+      {
+        src: context,
+        name: "Mario7",
+        heading: "React Starting Page",
+        onImageClick: this.myContext
       }
     ];
     this.sences = {
@@ -103,6 +120,23 @@ class App extends React.Component {
             <img src={smb} />
           </div>
         </div>
+      ),
+      inAndOut: (
+        <div>
+          <InAndOut />
+          <div className="bg">
+            <img src={smb} />
+          </div>
+        </div>
+      ),
+      myContext: (
+        <div>
+          <Theme />
+
+          <div className="bg">
+            <img src={smb} />
+          </div>
+        </div>
       )
     };
     this.state = { sences: this.sences.startPage };
@@ -128,6 +162,14 @@ class App extends React.Component {
     this.setState({ sences: this.sences.linkedList });
   };
 
+  inAndOut = () => {
+    this.setState({ sences: this.sences.inAndOut });
+  };
+
+  myContext = () => {
+    this.setState({ sences: this.sences.myContext });
+  };
+
   render() {
     return (
       <div className="App">
@@ -142,7 +184,9 @@ class App extends React.Component {
           ))}
         </div>
 
-        <header className="App-header">{this.state.sences}</header>
+        <header className="App-header">
+          <ThemeContextProvider>{this.state.sences}</ThemeContextProvider>
+        </header>
       </div>
     );
   }

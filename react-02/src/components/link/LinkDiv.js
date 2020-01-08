@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+
 const NewNode = props => {
-    return (
-        <div className="inNode">
-            <span> Amount: {props.amount} </span>
-            <span> subject: {props.subject} </span>
-            {props.isFlag ? (
-                <span>
-                    <button onClick={props.handleDeleteEvent}> Delete </button>
-                    <span className="flag"> Flag </span>
-                </span>
-            ) : (
-                ""
-            )}
-        </div>
-    );
+  const context = useContext(ThemeContext);
+  let [fColor, setFColor] = useState(context.fontColor);
+  return (
+    <div className="inNode" style={{ color: fColor }}>
+      <span> Amount: {props.amount} </span>
+      <span> subject: {props.subject} </span>
+      {props.isFlag ? (
+        <span>
+          <button onClick={props.handleDeleteEvent}> Delete </button>
+          <span className="flag"> Flag </span>
+        </span>
+      ) : (
+        ""
+      )}
+    </div>
+  );
 };
 export default NewNode;
