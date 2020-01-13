@@ -213,14 +213,14 @@ class MindFuel extends Component {
               this.rotation("clockwise");
             }}
           >
-            CLOCKWISE
+            COUNTER CLOCKWISE
           </button>
           <button
             onClick={() => {
               this.rotation("counterClockwise");
             }}
           >
-            COUNTER CLOCKWISE
+            CLOCKWISE
           </button>
         </div>
         <div>

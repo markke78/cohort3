@@ -19,8 +19,8 @@ export function rotation(coordinate, angle, center = [0, 0]) {
       (b[0] - center[0]) * Math.sin((angle * Math.PI) / 180) +
       (b[1] - center[1]) * Math.cos((angle * Math.PI) / 180) +
       center[1];
-    b[0] = parseInt(newX);
-    b[1] = parseInt(newY);
+    b[0] = Math.round(newX);
+    b[1] = Math.round(newY);
   }
   return coordinate;
 }
