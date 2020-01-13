@@ -23,7 +23,6 @@ window.onload = async event => {
       b.population
     );
     domCity.createNewCard(cityList, counter++, newCity.newCity);
-    console.log(newCity.newCity);
     topop.textContent = country.getPopulation();
     let mostNorth = country.getMostNorthern();
     northern.textContent = mostNorth.name + "  " + mostNorth.latitude;
@@ -41,6 +40,7 @@ btn1.addEventListener("click", () => {
     int3.value,
     int4.value
   );
+
   if (newCity.result == false) {
     alert(newCity.message);
     return;
@@ -53,6 +53,10 @@ btn1.addEventListener("click", () => {
   let mostSouth = country.getMostSouthern();
   southern.textContent = mostSouth.name + "  " + mostSouth.latitude;
   citySelect.innerHTML = country.addCityInInput();
+  int1.value = "";
+  int2.value = "";
+  int3.value = "";
+  int4.value = "";
 });
 
 btn2.addEventListener("click", async () => {

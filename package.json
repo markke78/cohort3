@@ -11,7 +11,7 @@
         "testfile": "jest src/01-getting-started/scripts/lfsplay.test.js",
         "tk": "jest src/javascript/daily.test.js",
         "tk1": "jest src/javascript/daily.test.js"
-        },
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",
