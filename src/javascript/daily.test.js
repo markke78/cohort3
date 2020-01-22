@@ -216,26 +216,26 @@ test("Anonymous function working", () => {
     { num: 9, origin: "Oregon", str: "pears" }
   ]);
   expect(functions.nameFunc(myArray)).toEqual([
-    { num: 5, origin: "BC", str: "apples" },
-    { num: 6, origin: "Mexico", str: "avocados" },
-    { num: 8, origin: "Ecuador", str: "bananas" },
-    { num: 3, origin: "Chile", str: "blueberries" },
     { num: 1, origin: "California", str: "cantaloupe" },
     { num: 2, origin: "Mexico", str: "lemons" },
+    { num: 3, origin: "Chile", str: "blueberries" },
+    { num: 4, origin: "Brazil", str: "pineapple" },
+    { num: 5, origin: "BC", str: "apples" },
+    { num: 6, origin: "Mexico", str: "avocados" },
     { num: 7, origin: "Florida", str: "oranges" },
-    { num: 9, origin: "Oregon", str: "pears" },
-    { num: 4, origin: "Brazil", str: "pineapple" }
+    { num: 8, origin: "Ecuador", str: "bananas" },
+    { num: 9, origin: "Oregon", str: "pears" }
   ]);
 
   expect(functions.originFunc(myArray)).toEqual([
-    { num: 5, origin: "BC", str: "apples" },
-    { num: 4, origin: "Brazil", str: "pineapple" },
     { num: 1, origin: "California", str: "cantaloupe" },
-    { num: 3, origin: "Chile", str: "blueberries" },
-    { num: 8, origin: "Ecuador", str: "bananas" },
-    { num: 7, origin: "Florida", str: "oranges" },
-    { num: 6, origin: "Mexico", str: "avocados" },
     { num: 2, origin: "Mexico", str: "lemons" },
+    { num: 3, origin: "Chile", str: "blueberries" },
+    { num: 4, origin: "Brazil", str: "pineapple" },
+    { num: 5, origin: "BC", str: "apples" },
+    { num: 6, origin: "Mexico", str: "avocados" },
+    { num: 7, origin: "Florida", str: "oranges" },
+    { num: 8, origin: "Ecuador", str: "bananas" },
     { num: 9, origin: "Oregon", str: "pears" }
   ]);
 });
