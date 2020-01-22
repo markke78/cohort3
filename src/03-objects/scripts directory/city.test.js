@@ -18,11 +18,23 @@ test("test movedOut working", () => {
 test("test howbig working", () => {
   let m = new City(1, "Calgary", 51.049999, -114.066666, 1392609);
   expect(m.howBig()).toBe("City");
+  let n = new City(1, "Calgary", 51.049999, -114.066666, 20001);
+  expect(n.howBig()).toBe("Large Town");
+  let p = new City(1, "Calgary", 51.049999, -114.066666, 1001);
+  expect(p.howBig()).toBe("Town");
+  let q = new City(1, "Calgary", 51.049999, -114.066666, 101);
+  expect(q.howBig()).toBe("Village");
+  let w = new City(1, "Calgary", 51.049999, -114.066666, 10);
+  expect(w.howBig()).toBe("Hamlet");
 });
 
 test("test whichSphere working", () => {
   let m = new City(1, "Calgary", 51.049999, -114.066666, 1392609);
   expect(m.whichSphere()).toBe("Northern Hemipnere");
+  let n = new City(1, "Calgary", -1, -114.066666, 1392609);
+  expect(n.whichSphere()).toBe("Southern Hemisphere");
+  let p = new City(1, "Calgary", 0, -114.066666, 1392609);
+  expect(p.whichSphere()).toBe("Equator");
 });
 
 test("test community create city", () => {
@@ -31,6 +43,10 @@ test("test community create city", () => {
     community.createCity("Taipei", 0, 25.105497, 121.597366, 2500000).newCity
       .name
   ).toEqual("Taipei");
+  expect(community.createCity("", 0, "", "", "")).toEqual({
+    message: "Please enter your infromation completely!",
+    result: false
+  });
 });
 
 test("test delete city working", () => {
