@@ -23,11 +23,7 @@ class Tictactoe extends Component {
     newBoxes[index] = operator;
     let newOperator = operator === marioO ? luigiX : marioO;
     history.push({ squares: newBoxes, nextPlayer: newOperator });
-    this.setState({
-      boxes: newBoxes,
-      history: history,
-      operator: newOperator
-    });
+    this.setState({ boxes: newBoxes, history: history, operator: newOperator });
     return;
   };
 
@@ -49,12 +45,7 @@ class Tictactoe extends Component {
         return boxes[a] === marioO ? "Mario" : "Luigi";
       }
     }
-    for (let i = 0; i < boxes.length; i++) {
-      if (boxes[i] === null) {
-        return null;
-      }
-    }
-    return "Tied";
+    return null;
   };
 
   timer = (record, index) => {
@@ -78,21 +69,7 @@ class Tictactoe extends Component {
     }
     return (
       <div>
-        <div className="status">
-          {status}
-          {winner === "Tied" ? (
-            <button
-              onClick={() => {
-                this.timer(this.state.history[0], 0);
-              }}
-            >
-              Restart
-            </button>
-          ) : (
-            ""
-          )}
-        </div>
-
+        <div className="status">{status}</div>
         <div className="gameArea">
           <img className="gamePage" src={tictactoebg1} alt="innerBox"></img>
           <div className="board">
