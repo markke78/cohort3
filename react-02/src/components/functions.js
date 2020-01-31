@@ -229,9 +229,11 @@ class Community {
     for (let b of this.communityCities) {
       lat.push(b.latitude1());
     }
+
     let heighestValue = Math.max(...lat);
     for (let b of this.communityCities) {
-      if (b.latitude1() === heighestValue) {
+      if (b.latitude1() == heighestValue) {
+        console.log(b);
         return b.name1();
       }
     }
