@@ -85,7 +85,6 @@ class AccountController {
   }
 
   lowestValue() {
-    //let balanceNumbers = [];
     if (this.userAccounts.length < 1) return ["", 0];
     let b = this.userAccounts.reduce((prev, current) =>
       prev.balance1() < current.balance1() ? prev : current
