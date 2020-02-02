@@ -80,7 +80,7 @@ class ReactAccount extends Component {
           </div>
         </div>
         <div id="accArea" className="split right">
-          <h3>Account Information</h3>
+          <h2>Account Information</h2>
 
           <button
             className="money"
