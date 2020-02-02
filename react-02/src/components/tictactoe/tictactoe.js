@@ -80,7 +80,7 @@ class Tictactoe extends Component {
       <div>
         <div className="status">
           {status}
-          {/* {winner === "Tied" ? (
+          {winner === "Tied" ? (
             <button
               onClick={() => {
                 this.timer(this.state.history[0], 0);
@@ -90,7 +90,7 @@ class Tictactoe extends Component {
             </button>
           ) : (
             ""
-          )} */}
+          )}
         </div>
 
         <div className="gameArea">
