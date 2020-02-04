@@ -14,10 +14,11 @@ b=[1,2,3,4,5]
     #     dictionary / objects
 students ={'name':'Mark', 'id':'123456'}
     #     None
-b= 6
+Z = None
     # sample if / else
 
 def if_else(a, b):
+    b= 6
     if a>b:
         return "a is bigger"
     else:
@@ -71,8 +72,12 @@ def while_loop(x):
     return mylist
     
     # Objects / Dictionaries
-    #     declare object
     #     lookup key to retrieve value
+
+def lookup(fstName, lstName, ag):
+    person = {"Firstname":fstName, "Lastname":lstName, "age":ag}
+    return person["Firstname"]
+    
 
 
 

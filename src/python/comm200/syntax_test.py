@@ -25,6 +25,9 @@ def test_for_loop():
 def test_while_loop():
     assert syntax.while_loop(6) == [0, 1, 2, 3, 4, 5]
 
+def test_lookup():
+    assert syntax.lookup("Mark", "Ke", 42) == "Mark"
+
 
 
 
