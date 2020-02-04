@@ -15,3 +15,16 @@ def test_add_to_the_end():
 
 def test_if_else():
     assert syntax.if_else(5, 6) == 'b is bigger'
+
+def test_update_values():
+    assert syntax.update_values("c", "f", ["a", "b", "c", "d", "e"]) == ["a", "b", "f", "d", "e"]
+
+def test_for_loop():
+    assert syntax.for_loop([1, 2, 3, 4, 5]) == 15
+
+def test_while_loop():
+    assert syntax.while_loop(6) == [0, 1, 2, 3, 4, 5]
+
+
+
+

@@ -16,7 +16,7 @@ students ={'name':'Mark', 'id':'123456'}
     #     None
 b= 6
     # sample if / else
-    
+
 def if_else(a, b):
     if a>b:
         return "a is bigger"
@@ -45,13 +45,31 @@ def add_to_the_end(item, mylist):
     return mylist
 
     #     update values
+def update_values(subject, changes, mylist):
+    for idx,item in enumerate(mylist):
+        if subject in item:
+            mylist[idx] = changes
+            return mylist
 
-    #     comprehension
+    
     # loops 
-    #     for
     #     for/in
-    #     while
-    #     do while
+def for_loop(mylist):
+    total = 0
+    for i in mylist:
+        total += i
+    return total
+
+    
+    #     while:
+def while_loop(x):
+    j=0
+    mylist =[]
+    while j < x:
+        mylist.append(j)
+        j += 1
+    return mylist
+    
     # Objects / Dictionaries
     #     declare object
     #     lookup key to retrieve value
