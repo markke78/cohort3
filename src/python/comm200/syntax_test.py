@@ -1,7 +1,21 @@
 import syntax
+def test_give_nums():
+    assert syntax.give_nums(5) == 5
+
+def test_give_strs():
+    assert syntax.give_strs('Mark') == 'Mark'
 
 def test_myboolean():
     assert syntax.myboolean(5, 6) == False
+
+def test_give_list():
+    assert syntax.give_list([1,2,3,4,5]) == [1, 2, 3, 4, 5] 
+
+def test_give_dictionary():
+    assert syntax.give_dictionary({'name':'Mark', 'id':'123456'}) == {'name':'Mark', 'id':'123456'}
+
+def test_give_none():
+    assert syntax.give_none(None) == None
 
 def test_add():
     assert syntax.add(2, 3) == 5

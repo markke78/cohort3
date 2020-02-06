@@ -1,23 +1,38 @@
     # define attributes / variables
     #     number
-a=5
+def give_nums(a):
+    nums = a
+    return nums
+    
     #     string
-name="Mark"
+def give_strs(word):
+    strs = word
+    return strs
+
     #     boolean
 def myboolean(a, b):
     if a>b:
         return True
     return False
 
-    #     array
-b=[1,2,3,4,5]
-    #     dictionary / objects
-students ={'name':'Mark', 'id':'123456'}
-    #     None
-Z = None
-    # sample if / else
+    #     list
+def give_list(array):
+    the_list = array
+    return the_list
 
+    #     dictionary / objects
+def give_dictionary(object):
+    the_dictionary = object
+    return the_dictionary
+
+    #     None
+def give_none(z):
+    the_none = z
+    return the_none
+
+    # sample if / else
 def if_else(a, b):
+    a= 5
     b= 6
     if a>b:
         return "a is bigger"
