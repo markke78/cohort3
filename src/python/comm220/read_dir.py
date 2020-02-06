@@ -1,13 +1,20 @@
 import os
 from os.path import join, getsize
 
-def getdirsize(dir):
+def getdirsize(path):
+    num_files = len(os.listdir(path))
+    folder_name =os.path.basename(path)
     size = 0
-    total=[]
-    for root, dirs, files in os.walk(dir):
+    list_size=[]
+    total_size=0
+    for root, dirs, files in os.walk(path):
         size = sum([ getsize ( join (root, name)) for name in files])
-        total.append(size)
-    return sum(total)
+        list_size.append(size)
+        total_size = sum(list_size)
+    return f'There are {num_files} files and {total_size} bytes in {folder_name}.'
+
+
+
 
 
 # import os
