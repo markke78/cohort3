@@ -1,3 +1,38 @@
+def get_category_idx_pair(header):
+    return {cat.rstrip(): ind for ind, cat in enumerate(header.split(","))}
+
+
+def get_info_by_category(target, cats):
+    sum_target = {}
+    lines_num = {}
+
+    with open("Census_by_Community_2018.csv", "r") as csv:
+        for idx, line in enumerate(csv):
+            if idx == 0:
+                header_idx = get_category_idx_pair(line)
+                cat_idx = {}
+                target_idx = header_idx[target]
+                for cat in cats:
+                    cat_idx[cat] = header_idx[cat]
+                    sum_target[cat] = {}
+                    lines_num[cat] = {}
+            else:
+                line_data = line.split(",")
+                target_val = int(line_data[target_idx])
+                sub_cats = {}
+                for cat in cats:
+                    sub_cats[cat] = line_data[cat_idx[cat]]
+                    sum_target[cat][sub_cats[cat]] = (
+                        sum_target[cat].get(sub_cats[cat], 0) + target_val
+                    )
+                    lines_num[cat][sub_cats[cat]] = (
+                        lines_num[cat].get(sub_cats[cat], 0) + 1
+                    )
+
+
+# return sum_target, lines_num
+
+
 # def get_category_idx_pair(header):
 #     return {cat.rstrip(): ind for ind, cat in enumerate(header.split(","))}
 
@@ -31,55 +66,34 @@
 #     return sum_target, lines_num
 
 
+# with open("Census_by_Community_2018.csv", "r") as csv:
+#     next(csv)
+#     data={}
+#     new_data={}
+#     R=0
+#     total_lines=0
+#     for ind, line in enumerate(csv):
+#         data[ind] =data.get(ind, line)
+#         inside_data={}
+#         RC=0
+#         for idx, item in enumerate(data[ind].split(",")):
+#             inside_data[idx]=inside_data.get(idx, item)
+#             # population = inside_data[9]
+#             # RC += int(population)
+#         break
+# new_data[ind]=new_data.get(ind,inside_data)
+
+# print (new_data)
 
 
+# new_data[ind]=new_data.get(ind,inside_data)
 
 
+# for ind, cat in enumerate(line.split(",")):
+#     data[ind] = data.get(ind, cat)
 
-
-
-
-
-
-
-
-
-
-
-with open("Census_by_Community_2018.csv", "r") as csv:  
-    next(csv)
-    data={}
-    new_data={}
-    R=0
-    total_lines=0
-    for ind, line in enumerate(csv):
-        data[ind] =data.get(ind, line)
-        inside_data={}
-        RC=0
-        for idx, item in enumerate(data[ind].split(",")):
-            inside_data[idx]=inside_data.get(idx, item)
-            # population = inside_data[9]
-            # RC += int(population)
-        break
-new_data[ind]=new_data.get(ind,inside_data)
-        
-print (new_data)
-        
-                
-    # new_data[ind]=new_data.get(ind,inside_data)
-                
-           
-        # for ind, cat in enumerate(line.split(",")):            
-        #     data[ind] = data.get(ind, cat)
-            
-            # for item in data[0]
-            # if item == 
-        
-
-
-        
-        
-
+# for item in data[0]
+# if item ==
 
 
 # def get_category_idx_pair(header):
@@ -114,7 +128,6 @@ print (new_data)
 # # {'Residential': [1263734, 208], 'Industrial': [922, 42], 'Major Park': [0, 4], 'Residual Sub Area': [0, 49]}
 
 
-
 # try:
 #     csv_file = open('Census_by_Community_2018.csv', 'r')
 #     lines = csv_file.readlines()
@@ -122,9 +135,6 @@ print (new_data)
 #     csv_file.close()
 
 # print ({ind : cat.rstrip() for ind, cat in enumerate(lines[0].split(','))}[0])
-
-
-
 
 
 # res_cnt = {"classes": {}, "sectors": {}, "total": 0}
@@ -149,17 +159,16 @@ print (new_data)
 #                 SECTOR = SECTOR + char
 #             if comma == 9 and char != ",":
 #                 population = population + char
-            
+
 #         if CLASS in res_cnt["classes"]:
 #             res_cnt["classes"][CLASS] += int(population)
 #         else:
 #             res_cnt["classes"][CLASS] = int(population)
-        
+
 #         if SECTOR in res_cnt["sectors"]:
 #             res_cnt["sectors"][SECTOR] += int(population)
 #         else:
 #             res_cnt["sectors"][SECTOR] = int(population)
 # res_cnt["total"] = total_lines
 # print (res_cnt)
-
 

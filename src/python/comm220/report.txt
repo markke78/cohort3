@@ -1,15 +1,15 @@
------------------------- Calculation by CLASS ------------------------
+------------------ Calculation by CLASS_POPULATION -------------------
 
-Sub Category                            Population                              
+Sub Category                            Sub Total                               
 Residential                             1263734                                 
 Industrial                              922                                     
 Major Park                              0                                       
 Residual Sub Area                       0                                       
 
 
------------------------ Calculation by SECTOR ------------------------
+------------------ Calculation by SECTOR_POPULATION ------------------
 
-Sub Category                            Population                              
+Sub Category                            Sub Total                               
 CENTRE                                  199977                                  
 SOUTH                                   227345                                  
 NORTHEAST                               185534                                  
@@ -20,3 +20,28 @@ EAST                                    57666
 WEST                                    124497                                  
 
 
+--------------------- Calculation by CLASS_LINES ---------------------
+
+Sub Category                            Sub Total                               
+Residential                             208                                     
+Industrial                              42                                      
+Major Park                              4                                       
+Residual Sub Area                       49                                      
+
+
+-------------------- Calculation by SECTOR_LINES ---------------------
+
+Sub Category                            Sub Total                               
+CENTRE                                  62                                      
+SOUTH                                   58                                      
+NORTHEAST                               44                                      
+NORTHWEST                               30                                      
+NORTH                                   30                                      
+SOUTHEAST                               23                                      
+EAST                                    23                                      
+WEST                                    33                                      
+
+
+--------------------------------Total---------------------------------
+
+TOTAL LINES : 303                       TOTAL POPULATION : 1264656              
