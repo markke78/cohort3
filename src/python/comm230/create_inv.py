@@ -20,7 +20,7 @@ def get_customer_name(custid):
             return customer_infor
 
 
-def my_invoice(e):
+def my_invoice(e=None):
     id_input = ""
     cust_id = 0
     custName = ""
@@ -57,4 +57,7 @@ def my_invoice(e):
         f = open("/code/cohort3/src/python/comm230/invoice.txt", "w")
         f.write(f"{infor}\n{title}\n{invoiceInfo}\n{amount}")
         return "Invoice generated"
+
+
+my_invoice()
 

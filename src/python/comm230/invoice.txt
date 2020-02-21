@@ -1,11 +1,11 @@
-Invoice No. 2. Invoice Date: 12-05-2019
-Customer Name: Bobby Smith
+Invoice No. 1. Invoice Date: 12-01-2019
+Customer Name: Rachel Smith
 
 PRODUCT NAME:		UNIT PRICE:		QTY:
-  Portable Heater		119.99		 1
-Dining aTable Set		899.99		 1
+       Dishwasher		599.99		 1
            Washer		999.99		 1
+Dining aTable Set		899.99		 1
 
-Sales_Amt:             2019.97
-GST:                    101.00
-Total Sales:           4745.94
+Sales_Amt:             2499.97
+GST:                    125.00
+Total Sales:           2624.97
