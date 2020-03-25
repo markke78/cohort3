@@ -20,7 +20,8 @@ wb_obj = read_data(wb)
 @app.route("/", methods=["POST"])
 def creat_wb_obj_item():
     request_data = request.get_json()
-    wb_obj["invoice_detail"] = request_data["invoice_detail"]
+    for item in request_data:
+        wb_obj[item] = request_data[item]
     return jsonify(wb_obj)
 
 
@@ -42,10 +43,11 @@ def create_customer():
 @app.route("/customer/<int:id>", methods=["POST"])
 def create_item_on_customer(id):
     request_data = request.get_json()
-    for index in wb_obj["customer"]:
-        if index["customer_id"] == id:
-            index["gender"] = request_data["gender"]
-            return jsonify(index)
+    for customer in wb_obj["customer"]:
+        if customer["customer_id"] == id:
+            for item in request_data:
+                customer[item] = request_data[item]
+            return jsonify(customer)
     return jsonify({"message": "customer not found"})
 
 
