@@ -1,0 +1,29 @@
+{
+	"customer": [
+		{
+			"customer_id": 2,
+			"first_name": "Rachel",
+			"last_name": "Smith",
+			"address": "123 Riverbend SE",
+			"phone": "403-324-3455",
+			"email": "rachel@telus.ca"
+		}
+	],
+	"product": [
+		{
+			"prod_id": 1,
+			"prod_name": "Dishwasher",
+			"prod_price": 599.99
+		}
+	],
+	"invoice": [
+		{
+			"invoice_id": 1,
+			"customer_id": 1,
+			"invoice_date": "12-01-2019",
+			"sales_amount": 2499.97,
+			"GST(5%)": 124.9985,
+			"total_amount": 2624.9685
+		}
+	]
+}
