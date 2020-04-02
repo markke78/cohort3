@@ -73,21 +73,31 @@ class Item(Resource):
     def put(self, name):
         data = Item.parser.parse_args()
 
-        if self.find_by_name(name) is None:
-            item = {"name": name, "price": data["price"]}
+        item = self.find_by_name(name)
+        update_item = {"name": name, "price": data["price"]}
 
-            connection = sqlite3.connect("data.db")
-            cursor = connection.cursor()
-
-            query = "INSERT INTO items VALUES (?, ?)"
-            cursor.execute(query, (item["name"], item["price"]))
-
-            connection.commit()
-            connection.close()
-
+        if item is None:
+            try:
+                self.insert(update_item)
+            except:
+                return {"message": "An error occurred inserting the item"}, 500
         else:
-            item.update(data)
-        return item
+            try:
+                self.update(update_item)
+            except:
+                return {"message": "An error occured inserting the item"}, 500
+        return update_item
+
+    @classmethod
+    def update(cls, item):
+        connection = sqlite3.connect("data.db")
+        cursor = connection.cursor()
+
+        query = "UPDATE items SET price=? WHERE name=?"
+        cursor.execute(query, (item["price"], item["name"]))
+
+        connection.commit()
+        connection.close()
 
 
 class ItemList(Resource):
