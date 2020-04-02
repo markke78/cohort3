@@ -86,6 +86,7 @@ class Item(Resource):
                 self.update(update_item)
             except:
                 return {"message": "An error occured inserting the item"}, 500
+
         return update_item
 
     @classmethod
