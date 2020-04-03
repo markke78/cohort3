@@ -16,8 +16,8 @@ class Item(Resource):
             return item
         return {"message": "Item not found"}, 404
 
-    @classmethod
-    def find_by_name(cls, name):
+    @staticmethod
+    def find_by_name(name):
         connection = sqlite3.connect("data.db")
         cursor = connection.cursor()
 
