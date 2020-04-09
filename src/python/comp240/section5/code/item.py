@@ -29,6 +29,28 @@ class Item(Resource):
         if row:
             return {"item": {"name": row[0], "price": row[1]}}
 
+    # def post(self):
+    #     data = Item.parser.parse_args()
+    #     print("Now printing in post:")
+    #     print(data)
+    #     if self.find_by_name(data["name"]):
+    #         return (
+    #             {
+    #                 "message": "An item with name '{}' already exist.".format(
+    #                     data["name"]
+    #                 )
+    #             },
+    #             400,
+    #         )
+    #     item = {"name": data["name"], "price": data["price"]}
+
+    #     try:
+    #         self.insert(item)
+    #     except:
+    #         return {"message": "An error occurred inserting the item."}, 500
+
+    #     return item, 201
+
     def post(self, name):
         if self.find_by_name(name):
             return (
@@ -37,6 +59,7 @@ class Item(Resource):
             )
 
         data = Item.parser.parse_args()
+        print(data)
 
         item = {"name": name, "price": data["price"]}
 
@@ -102,6 +125,7 @@ class Item(Resource):
 
 
 class ItemList(Resource):
+    @jwt_required()
     def get(self):
         connection = sqlite3.connect("data.db")
         cursor = connection.cursor()

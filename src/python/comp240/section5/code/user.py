@@ -3,14 +3,14 @@ from flask_restful import Resource, reqparse
 from flask import Flask, request
 
 
-class User:
+class User(Resource):
     def __init__(self, _id, username, password):
         self.id = _id
         self.username = username
         self.password = password
 
     @classmethod
-    def find_by_username(cls, username):
+    def find_by_username(self, username):
         connection = sqlite3.connect("data.db")
         cursor = connection.cursor()
 
@@ -18,7 +18,7 @@ class User:
         result = cursor.execute(query, (username,))
         row = result.fetchone()
         if row:
-            user = cls(*row)
+            user = self(*row)
         else:
             user = None
 
@@ -40,6 +40,13 @@ class User:
 
         connection.close()
         return user
+    # @staticmethod
+    # def get(name):
+    #     user = User.find_by_username(name)
+    #     if user:
+    #         return user
+    #     return {"message":"user not found"}, 404
+
 
 
 class UserRegister(Resource):
@@ -69,3 +76,21 @@ class UserRegister(Resource):
 
         print(data)
         return {"message": "User created successfully."}, 201
+
+class UserList(Resource):
+    def get(self):
+        connection = sqlite3.connect("data.db")
+        cursor = connection.cursor()
+
+        query = "SELECT * FROM users"
+        result = cursor.execute(query)
+        users = []
+        for row in result:
+            users.append({"user_id":row[0], "usernam": row[1], "password": row[2]})
+
+        connection.close()
+        print (users)
+
+        return {"users": users}
+
+
