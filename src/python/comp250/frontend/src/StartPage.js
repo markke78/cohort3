@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 const url = "http://127.0.0.1:5000/";
-async function postData(url = "", data = {}) {
+async function postData(
+  url = "",
+  data = {},
+  header = { "Content-Type": "application/json" }
+) {
   // Default options are marked with *
   const response = await fetch(url, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-      "Content-Type": "application/json",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
+    headers: header,
     redirect: "follow", // manual, *follow, error
     referrer: "no-referrer", // no-referrer, *client
     body: JSON.stringify(data), // body data type must match "Content-Type" header
@@ -36,7 +37,11 @@ const getAccessToken = async (user) => {
 const StartPage = (props) => {
   const [user, setUser] = useState({});
   const [isAuthenticated, setAuthenticated] = useState(false);
-  const onRenew = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+  // const onRenew = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+  const onRenew = (e) => {
+    user[e.target.name] = e.target.value;
+    setUser(user);
+  };
 
   const create_ueser = (e) => {
     e.preventDefault();

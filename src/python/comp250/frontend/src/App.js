@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import StartPage from "./StartPage";
-import ItemList from "./Items";
+import ItemList from "./items/Items";
 
 // const url = "http://127.0.0.1:5000/";
 

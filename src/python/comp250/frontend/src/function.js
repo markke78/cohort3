@@ -23,8 +23,8 @@ class Item {
 }
 
 class Editor {
-  constructor(items = []) {
-    this.items = items;
+  constructor() {
+    this.items = [];
   }
 
   getItems() {
