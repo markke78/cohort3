@@ -3,16 +3,16 @@ import Editor from "../function";
 import ItemDiv from "./ItemDiv";
 import "./item.css";
 
-const ItemList = () => {
+const ItemList = (props) => {
   const [editor, setEditor] = useState(new Editor());
   const name = useRef(null);
   const amount = useRef(null);
-  // useEffect(() => {
-  //   if (!editor) {
-  //     setEditor(new Editor());
-  //   }
-  //   setEditor(editor);
-  // }, [editor]);
+  useEffect(() => {
+    for (let b of props.items.items) {
+      editor.createItem(b.name, b.price);
+    }
+    setEditor(cloneLinked(editor));
+  }, []);
 
   const createItem = (e) => {
     e.preventDefault();
@@ -27,6 +27,11 @@ const ItemList = () => {
       editor
     );
     return clone;
+  };
+
+  const handleRemoveItem = (name) => {
+    editor.removeItem(name);
+    setEditor(cloneLinked(editor));
   };
 
   return (
@@ -54,7 +59,14 @@ const ItemList = () => {
       </div>
       <div className="itemArea">
         {editor.items.map((item, key) => {
-          return <ItemDiv key={key} name={item.name} price={item.price} />;
+          return (
+            <ItemDiv
+              key={key}
+              name={item.name}
+              price={item.price}
+              handleRemoveItem={() => handleRemoveItem(item.name)}
+            />
+          );
         })}
       </div>
     </div>

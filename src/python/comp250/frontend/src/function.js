@@ -23,8 +23,8 @@ class Item {
 }
 
 class Editor {
-  constructor() {
-    this.items = [];
+  constructor(items = []) {
+    this.items = items;
   }
 
   getItems() {
@@ -46,6 +46,16 @@ class Editor {
     }
     const newItem = new Item(name, price);
     this.items.push(newItem);
+    return this.items;
+  }
+
+  removeItem(name) {
+    for (let b in this.items) {
+      if (this.items[b].name === name) {
+        this.items.splice(b, 1);
+        break;
+      }
+    }
     return this.items;
   }
 }
