@@ -2,6 +2,7 @@ class Item {
   constructor(name, price) {
     this.name = name;
     this.price = price;
+    this.isEdit = false;
   }
 
   getName() {
@@ -18,6 +19,11 @@ class Item {
 
   decreasePrice(amount) {
     if (amount > 0) this.price -= amount;
+    return this.price;
+  }
+
+  changePrice(amount) {
+    if (amount > 0) this.price = amount;
     return this.price;
   }
 }
@@ -47,6 +53,23 @@ class Editor {
     const newItem = new Item(name, price);
     this.items.push(newItem);
     return this.items;
+  }
+
+  setEditByName(name, flag = false) {
+    for (let b of this.items) {
+      if (b.name === name) {
+        b.isEdit = flag;
+      }
+    }
+  }
+
+  adjustPrice(name, amount) {
+    for (let b of this.items) {
+      if (b.name === name) {
+        b.changePrice(amount);
+        return b.getPrice();
+      }
+    }
   }
 
   removeItem(name) {

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import StartPage from "./StartPage";
 import ItemList from "./items/Items";
@@ -14,9 +13,9 @@ function App() {
     }
   }, [sence]);
 
-  const goStartPage = (e) => {
-    setSence(<StartPage />);
-  };
+  // const goStartPage = (e) => {
+  //   setSence(<StartPage />);
+  // };
 
   const goItemPage = (items) => {
     setSence(<ItemList items={items} />);

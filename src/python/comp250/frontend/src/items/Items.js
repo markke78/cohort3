@@ -33,6 +33,16 @@ const ItemList = (props) => {
     editor.removeItem(name);
     setEditor(cloneLinked(editor));
   };
+  const adjustPrice = (name) => {
+    editor.setEditByName(name, true);
+    setEditor(cloneLinked(editor));
+  };
+
+  const saveChange = (name, price) => {
+    editor.adjustPrice(name, price);
+    editor.setEditByName(name, false);
+    setEditor(cloneLinked(editor));
+  };
 
   return (
     <div>
@@ -62,9 +72,10 @@ const ItemList = (props) => {
           return (
             <ItemDiv
               key={key}
-              name={item.name}
-              price={item.price}
+              item={item}
               handleRemoveItem={() => handleRemoveItem(item.name)}
+              adjustPrice={() => adjustPrice(item.name)}
+              saveChange={saveChange}
             />
           );
         })}

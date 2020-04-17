@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { getAccessToken, addUser, getData } from "./api";
 
-const url = "http://127.0.0.1:5000/";
-
 const StartPage = (props) => {
   const [user, setUser] = useState({});
-  const [isAuthenticated, setAuthenticated] = useState(false);
-  // const onRenew = (e) => setUser({ ...user, [e.target.name]: e.target.value });
   const onRenew = (e) => {
     user[e.target.name] = e.target.value;
     setUser(user);
@@ -54,7 +50,6 @@ const StartPage = (props) => {
         <button onClick={create_ueser}>create</button>
         <button onClick={onSignIn}>Sign In</button>
       </form>
-      {isAuthenticated && <h2>Authenticated!</h2>}
     </div>
   );
 };
