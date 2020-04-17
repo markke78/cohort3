@@ -9,11 +9,13 @@ const ItemList = (props) => {
   const name = useRef(null);
   const amount = useRef(null);
   useEffect(() => {
-    for (let b of props.items.items) {
-      editor.createItem(b.name, b.price);
+    if (editor.items === null || editor.items.length === 0) {
+      for (let b of props.items.items) {
+        editor.createItem(b.name, b.price);
+      }
+      setEditor(cloneLinked(editor));
     }
-    setEditor(cloneLinked(editor));
-  }, []);
+  }, [editor, props.items]);
 
   const createItem = (e) => {
     e.preventDefault();
