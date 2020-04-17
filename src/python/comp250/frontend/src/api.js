@@ -23,6 +23,11 @@ const putPrice = (name, amount) => {
   postData(itemUrl, { price: amount }, "PUT").then((json) => console.log(json));
 };
 
+const deleteItem = (name) => {
+  const itemUrl = url + `item/${name}`;
+  postData(itemUrl, {}, "DELETE").then((json) => console.log(json));
+};
+
 async function getData(user) {
   const itemUrl = url + "items";
   const token = await getAccessToken(user);
@@ -65,4 +70,12 @@ async function postData(
   return json;
 }
 
-export { postData, getAccessToken, addUser, getData, addItem, putPrice };
+export {
+  postData,
+  getAccessToken,
+  addUser,
+  getData,
+  addItem,
+  putPrice,
+  deleteItem,
+};

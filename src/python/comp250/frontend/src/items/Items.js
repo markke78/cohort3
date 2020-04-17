@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Editor from "../function";
 import ItemDiv from "./ItemDiv";
 import "./item.css";
-import { addItem } from "../api";
+import { addItem, deleteItem } from "../api";
 
 const ItemList = (props) => {
   const [editor, setEditor] = useState(new Editor());
@@ -33,6 +33,7 @@ const ItemList = (props) => {
 
   const handleRemoveItem = (name) => {
     editor.removeItem(name);
+    deleteItem(name);
     setEditor(cloneLinked(editor));
   };
   const adjustPrice = (name) => {
