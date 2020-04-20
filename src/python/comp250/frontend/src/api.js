@@ -1,16 +1,23 @@
 const url = "http://127.0.0.1:5000/";
 const getAccessToken = async (user) => {
-  const authUrl = url + "/auth";
+  console.log(user);
+  const authUrl = url + "auth";
   const json = await postData(authUrl, user);
   return json.access_token;
 };
 
-const addUser = (username, password) => {
+const getUser = () => {
+  const userUrl = url + "users";
+  postData(userUrl, {}, "GET").then((json) => console.log(json));
+};
+
+const addUser = async (username, password) => {
   const postUrl = url + "register";
-  postData(postUrl, {
+  const data = await postData(postUrl, {
     username: username,
     password: password,
-  }).then((json) => console.log(json));
+  });
+  return data;
 };
 
 const addItem = (name, amount) => {
@@ -31,6 +38,10 @@ const deleteItem = (name) => {
 async function getData(user) {
   const itemUrl = url + "items";
   const token = await getAccessToken(user);
+  if (token.error) {
+    console.log("Password and username does not match!");
+    return;
+  }
   let data = await postData(itemUrl, {}, "GET", {
     Authorization: `JWT ${token}`,
   });
@@ -78,4 +89,5 @@ export {
   addItem,
   putPrice,
   deleteItem,
+  getUser,
 };

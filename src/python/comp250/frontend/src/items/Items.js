@@ -9,7 +9,10 @@ const ItemList = (props) => {
   const name = useRef(null);
   const amount = useRef(null);
   useEffect(() => {
-    if (editor.items === null || editor.items.length === 0) {
+    if (
+      props.items.items.length > 0 &&
+      (editor.items === null || editor.items.length === 0)
+    ) {
       for (let b of props.items.items) {
         editor.createItem(b.name, b.price);
       }
