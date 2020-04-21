@@ -5,7 +5,7 @@ from flask_jwt import JWT
 from flask_cors import CORS
 
 from security import authenticate, identity
-from user import UserRegister, UserList
+from user import UserRegister, UserList, DeleteUser
 from item import Item, ItemList
 
 
@@ -20,6 +20,7 @@ api.add_resource(Item, "/item/<string:name>", "/item")
 api.add_resource(ItemList, "/items")
 api.add_resource(UserRegister, "/register")
 api.add_resource(UserList, "/users")
+api.add_resource(DeleteUser, "/delete")
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

@@ -40,6 +40,21 @@ class User(Resource):
 
         connection.close()
         return user
+
+    # def delet(self,username):
+    #     connection = sqlite3.connect("data.db")
+    #     cursor = connection.cursor()
+
+    #     query = "DELETE FROM users WHERE username=?"
+    #     cursor.execute(query, (username,))
+
+    #     connection.commit()
+    #     connection.close()
+
+        # return {"message": "user deleted"}
+
+
+
     # @staticmethod
     # def get(name):
     #     user = User.find_by_username(name)
@@ -86,11 +101,32 @@ class UserList(Resource):
         result = cursor.execute(query)
         users = []
         for row in result:
-            users.append({"user_id":row[0], "usernam": row[1], "password": row[2]})
+            users.append({"user_id":row[0], "username": row[1], "password": row[2]})
 
         connection.close()
-        print (users)
+        print (row)
 
         return {"users": users}
+
+class DeleteUser(Resource):
+    parser = reqparse.RequestParser()
+    parser.add_argument(
+        "username", type=str, required=True, help="This field cannot be blank"
+    )
+
+    def delete(self):
+        data = DeleteUser.parser.parse_args()
+       
+        connection = sqlite3.connect("data.db")
+        cursor = connection.cursor()
+
+        query = "DELETE FROM users WHERE username=?"
+        cursor.execute(query, (data["username"],))
+
+        connection.commit()
+        connection.close()
+        
+
+        return {"message": "user deleted"}
 
 
