@@ -15,6 +15,10 @@ const StartPage = () => {
     const token = await login(user);
     console.log(token);
   };
+
+  const goSignUp = (e) => {
+    history.push("/signup");
+  };
   return (
     <div>
       <div className="sign">
@@ -35,7 +39,7 @@ const StartPage = () => {
       <br />
       If you have not had account yet, please go to sign up.
       <br />
-      <button onClick={onSignIn}>Go To Sign Up</button>
+      <button onClick={goSignUp}>Go To Sign Up</button>
     </div>
   );
 };
