@@ -1,0 +1,15 @@
+.inNode {
+  display: inline-block;
+  border-style: double;
+  border-width: 5px;
+  margin: 10px;
+  width: 200px;
+}
+
+.itemArea {
+  float: left;
+}
+
+.remove {
+  margin: 5px;
+}

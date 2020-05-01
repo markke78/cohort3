@@ -18,6 +18,21 @@ const login = async (user) => {
   return token;
 };
 
+async function getData() {
+  const itemUrl = url + "items";
+  const token = Cookies.get(TOKEN_NAME);
+  if (token === null) return null;
+  // if (token.error) {
+  //   console.log("Password and username does not match!");
+  //   return;
+  // }
+  let data = await postData(itemUrl, {}, "GET", {
+    Authorization: `JWT ${token}`,
+  });
+  console.log(data);
+  return data;
+}
+
 const getUser = () => {
   const userUrl = url + "users";
   postData(userUrl, {}, "GET").then((json) => console.log(json));
@@ -47,19 +62,19 @@ const deleteItem = (name) => {
   postData(itemUrl, {}, "DELETE").then((json) => console.log(json));
 };
 
-async function getData(user) {
-  const itemUrl = url + "items";
-  const token = await getAccessToken(user);
-  if (token.error) {
-    console.log("Password and username does not match!");
-    return;
-  }
-  let data = await postData(itemUrl, {}, "GET", {
-    Authorization: `JWT ${token}`,
-  });
-  console.log(data);
-  return data;
-}
+// async function getData(user) {
+//   const itemUrl = url + "items";
+//   const token = await getAccessToken(user);
+//   if (token.error) {
+//     console.log("Password and username does not match!");
+//     return;
+//   }
+//   let data = await postData(itemUrl, {}, "GET", {
+//     Authorization: `JWT ${token}`,
+//   });
+//   console.log(data);
+//   return data;
+// }
 
 async function postData(
   url = "",
