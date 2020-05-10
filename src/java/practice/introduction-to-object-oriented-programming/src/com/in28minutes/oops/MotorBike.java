@@ -16,6 +16,14 @@ public class MotorBike {
 		}
 	}
 
+	public void increaseSpeed(int howMuch) {
+		setSpeed(this.speed + howMuch);
+	}
+
+	public void decreaseSpeed(int howMuch) {
+		setSpeed(this.speed - howMuch);
+	}
+
 	void start() {
 		System.out.println("Bike Started");
 	}
