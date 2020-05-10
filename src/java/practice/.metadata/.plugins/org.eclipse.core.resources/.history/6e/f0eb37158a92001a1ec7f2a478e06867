@@ -1,0 +1,16 @@
+package com.in28minutes.oops;
+
+public class MotorBike {
+	// state
+	private int speed;
+
+	// behavior
+	// method
+	// inputs - int speed
+	// outputs - void
+	// name - setSpeed
+
+	void SetSpeed(int speed) {
+		this.speed = speed;
+	}
+}

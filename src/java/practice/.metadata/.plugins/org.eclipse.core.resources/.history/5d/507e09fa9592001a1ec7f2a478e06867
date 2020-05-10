@@ -1,0 +1,10 @@
+package com.in28minutes.oops;
+
+public class Book {
+	// noOfCopies
+	int noOfCopies;
+	void page(int pages) {
+		System.out.println(pages);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.in28minutes.oops;
+
+public class MotorBike {
+	void start() {
+		//state
+		int speed;
+		
+		System.out.println("Bike Started");
+	}
+}
