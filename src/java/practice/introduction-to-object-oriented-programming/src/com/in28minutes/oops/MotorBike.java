@@ -3,8 +3,10 @@ package com.in28minutes.oops;
 public class MotorBike {
 	// state
 	private int speed;// member variable
-	
 
+	MotorBike(int speed){
+		this.speed = speed;
+	}
 
 	public int getSpeed() {
 		return speed;

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d63ab431-f0c5-412d-99eb-289df6e25c0f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Project/project/src/game/MindFuel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Project/project/src/game/MindFuel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react-02/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react-02/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react-02/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react-02/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SQL/course.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../SQL/course.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SQL/customer.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../SQL/customer.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/2785779580.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/2785779580.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/introduction-to-object-oriented-programming/bin/com/in28minutes/oops/MotorBike.class" beforeDir="false" afterPath="$PROJECT_DIR$/introduction-to-object-oriented-programming/bin/com/in28minutes/oops/MotorBike.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/introduction-to-object-oriented-programming/src/com/in28minutes/oops/MotorBike.java" beforeDir="false" afterPath="$PROJECT_DIR$/introduction-to-object-oriented-programming/src/com/in28minutes/oops/MotorBike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javascript/practice/interview.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../javascript/practice/interview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javascript/practice/interview.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../javascript/practice/interview.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javascript/syntax.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../javascript/syntax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comm230/read_xls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/comm230/read_xls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/section5/apitest/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp240/venv/code/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/comp240/venv/code/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp250/backend/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/comp250/backend/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp250/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/comp250/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp250/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/comp250/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp250/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/comp250/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp250/frontend/src/StartPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/comp250/frontend/src/StartPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../python/comp250/frontend/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../python/comp250/frontend/src/api.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1bkRhFebYpe4vgPvK1RsHqf5y12" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d63ab431-f0c5-412d-99eb-289df6e25c0f" name="Default Changelist" comment="" />
+      <created>1589174221719</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589174221719</updated>
+      <workItem from="1589174225083" duration="131000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>
