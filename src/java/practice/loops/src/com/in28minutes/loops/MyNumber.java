@@ -22,4 +22,23 @@ public class MyNumber {
 		return true;
 	}
 
+	public int sumUptoN() {
+		// 1+2+3+....+number
+		int sum = 0;
+		for (int i = 0; i <= number; i++) {
+			sum = sum + i;
+		}
+		return sum;
+	}
+
+	public int sumOfDivisor() {
+		int sum = 0;
+		for (int i = 2; i < number; i++) {
+			if (number % i == 0) {
+				sum = sum + i;
+			}
+		}
+		return sum;
+	}
+
 }
