@@ -15,6 +15,7 @@ public class MyNumberRunner {
 		System.out.println("sumOfDivisors " + sumOfDivisors);
 
 		number.printANumberTriangle();
+
 	}
 
 }
