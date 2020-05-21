@@ -31,6 +31,7 @@ public class MyNumber {
 		return sum;
 	}
 
+
 	public int sumOfDivisor() {
 		int sum = 0;
 		for (int i = 2; i < number; i++) {
